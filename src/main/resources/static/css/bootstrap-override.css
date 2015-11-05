@@ -1,0 +1,35 @@
+.btn:focus,
+.btn:active:focus,
+.btn.active:focus,
+.btn.focus,
+.btn:active.focus,
+.btn.active.focus {
+    outline: none;
+    outline-offset: 0px;
+    border-radius: 0px;
+}
+
+.carousel-control {
+    margin: 0px 0px;
+    width: 30px;
+    color: inherit;
+}
+.carousel-inner {
+    margin: 0 auto;
+}
+.carousel-control.left,
+.carousel-control.right {
+    background: none no-repeat;
+}
+
+.item {
+    height: auto;
+    max-width: 960px;
+    padding: 0 0;
+}
+
+.collapsing {
+    -webkit-transition-duration: 0.1s;
+    -o-transition-duration: 0.1s;
+    transition-duration: 0.1s;
+}

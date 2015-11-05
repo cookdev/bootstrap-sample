@@ -1,0 +1,51 @@
+/**
+* 포털 네비게이터에 대한 CSS 정의
+*/
+/********************/
+/* Portal Navigator */
+/********************/
+.site-header {
+    background-color: #FFFFFF;
+    /*background-color: #FFF6E5;*/
+    /*border-color: #FFF6E5;*/
+    border-width: 0 0 0 0;
+}
+.anyframe-log {
+    height: 53px;
+    width: 304px;
+    background-image: url('../img/logo_sub.jpg');
+}
+/***************************************/
+/* Portal Navigator Bootstrap Override */
+/***************************************/
+.navbar {
+    margin-bottom: 0px;
+    min-height: 53px;
+}
+
+.navbar-brand {
+    padding: 0px 15px;
+    height: 53px;
+}
+
+.navbar .navbar-nav > li > a {
+    line-height: 23px;
+}
+.navbar .navbar-nav > li > a:hover,
+.navbar .navbar-nav > li > a:focus {
+    color: #337ab7;
+    font-weight: bold;
+    /*background-color: #e6e6e6;*/
+    border-color: #adadad;
+}
+.navbar .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar .navbar-nav > .active > a:focus {
+    color: #fff;
+    /*background-color: #2185C5;*/
+}
+
+.navbar-right {
+    float: right !important;
+    margin-right: 0px;
+}

@@ -1,0 +1,139 @@
+/**
+* 공통 네비게이터 대한 CSS 정의
+*/
+/********************/
+/* Common Navigator */
+/********************/
+.common-navbar {
+    background-color: #3c3d3d;
+    border-width: 0 0 0 0;
+    margin-bottom: 0px;
+    height: 32px;
+}
+
+.common-navbar .navbar-brand {
+    padding: 0px 15px;
+    height: 32px;
+}
+
+.common-navbar .navbar-contents{
+    display: block;
+    height: auto;
+}
+
+.common-navbar .navbar-contents:before {
+    content: " ";
+    display: table;
+}
+.common-navbar .navbar-contents:after {
+    content: " ";
+    display: table;
+    clear: both;
+}
+
+.common-navbar .navbar-contents .navbar-nav{
+    float: left;
+    margin: 0;
+    padding-left: 0;
+    list-style: none;
+}
+
+.common-navbar .navbar-contents .navbar-nav > li{
+    float: left;
+    position: relative;
+    display: block;
+}
+
+.common-navbar .navbar-contents .navbar-nav > li > a {
+    line-height: 12px;
+    color: #fff;
+    position: relative;
+    display: block;
+    padding: 10px 15px;
+}
+.common-navbar .navbar-contents .navbar-nav > li > a:hover,
+.common-navbar .navbar-contents .navbar-nav > li > a:focus {
+    /*background-color: #e6e6e6;*/
+    /*border-color: #adadad;*/
+    text-decoration: none;
+    color: #a2a3a4;
+}
+.common-navbar .navbar-contents .navbar-nav > .active > a,
+.common-navbar .navbar-contents .navbar-nav > .active > a:hover,
+.common-navbar .navbar-contents .navbar-nav > .active > a:focus {
+    color: #FFFFFF;
+    /*background-color: #2185C5;*/
+    text-decoration: none;
+
+}
+.hide-with-animation{
+    padding-left:0px !important;
+    width: 0px !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    background-color: #3c3d3d;
+}
+
+.show-converstion{
+    color: #FFF;
+}
+
+.show-converstion:hover,
+.show-converstion:focus,
+.show-converstion.focus{
+    color: #a2a3a4;
+}
+/*************************************/
+/* 공통네비게이션 Bootstrap override */
+/*************************************/
+.navbar-form{
+    margin-top: 4px;
+    margin-bottom: 4px;
+    padding-right: 0px;
+    position: absolute;
+    right: 0;
+}
+
+.navbar-form input.form-control{
+    opacity: 1;
+    width: 211px;
+    height: 24px;
+    padding: 0px 24px 0px 12px;
+    -webkit-transition: width .5s ease-out, border .1s ease-out, box-shadow .1s, background-color .5s ease-out;
+}
+
+.navbar-form button{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 23px;
+    height: 23px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    color: #3c3d3d;
+    padding: 0px 6px 0px 6px;
+    margin-top: 1px;
+    margin-bottom: 0px;
+    margin-right: 1px;
+}
+.navbar-form .btn:hover,
+.navbar-form .btn:focus,
+.navbar-form .btn.focus {
+    color: #a2a3a4;
+    text-decoration: none;
+}
+.navbar-form .btn:active,
+.navbar-form .btn.active {
+    outline: 0;
+    background-image: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+@media (max-width: 883px) {
+    .navbar-form button:hover{
+        float: right !important;
+        margin-right: 0px;
+    }
+}

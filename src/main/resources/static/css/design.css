@@ -1,0 +1,109 @@
+ol, ul {
+    list-style: none;
+}
+
+/* Browser Default CSS Event Disable */
+:focus {
+    outline: none;
+}
+
+header {
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+}
+
+main {
+    top: 85px;
+    position: fixed;
+    width: 100%;
+    overflow-y: scroll;
+    height: -webkit-calc(100% - 85px); /* for Chrome, Safari */
+    height:    -moz-calc(100% - 85px); /* for Firefox */
+    height:         calc(100% - 85px); /* for IE */
+}
+
+.masthead {
+    background-color: #337ab7;
+    /*background-color: #FFFFFF;*/
+    /*background-color: #FFF6E5;*/
+    height: auto;
+    max-height: 368px;
+    /*border-bottom: solid 2px #bdbbbc;*/
+}
+
+.masthead .container {
+    /*max-width: 1170px;*/
+}
+
+.anyframe-contents {
+    background-color: #fff;
+}
+
+
+
+.anyframe-sample {
+    background-color: #f2f1f2;
+    border-bottom: solid 2px #bdbbbc;
+}
+.anyframe-sample2 {
+    background-color: #edf3f7;
+    border-bottom: solid 2px #bdbbbc;
+}
+
+.anyframe-simple-overview {
+    background-color: #F7F0EA;
+    border-bottom: solid 2px #bdbbbc;
+}
+
+.carousel-inner{
+    text-align: center;
+}
+.img-container{
+    display: table;
+    margin: 0 auto;
+}
+.center-image{
+    display: block;
+    /*margin: 0 auto;*/
+    -webkit-transition: width .5s ease-out;
+}
+
+/* Modal */
+/* 개인정보취급방침 팝업 */
+
+@media (min-width: 1140px) {
+    .modal-dialog.privacy {
+        width: 1140px !important;
+        margin: 30px auto !important;
+    }
+}
+.modal-dialog.privacy {
+    position: relative;
+    width: auto;
+    margin: 10px 10px 10px 10px;
+}
+
+.privacy .modal-body {
+    height: 100%;
+    overflow-y: scroll;
+}
+.modal-header {
+    background-color: #337ab7;
+}
+.modal-header h4 {
+    margin: 0 0;
+    color: #fff;
+}
+.modal-header .close {
+    color: #fff;
+    opacity: 1;
+}
+
+.modal-content {
+    border: none;
+}
+
+.modal-footer {
+    padding: 10px 15px;
+}
