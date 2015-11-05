@@ -15,3 +15,5 @@ git.properties
 .springBeans
 mvnw
 mvnw.cmd
+.mvn
+.idea
