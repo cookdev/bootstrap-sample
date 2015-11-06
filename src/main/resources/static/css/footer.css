@@ -7,7 +7,8 @@
     left: 0;
     padding: 0 0 0 0;
     min-height: 166px;
-    background: #3c3d3d;
+    background: #323e4e;
+    /*background: #3c3d3d;*/
     color: #a2a3a4;
 }
 .footer a {

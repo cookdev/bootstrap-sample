@@ -4,16 +4,25 @@
 /********************/
 /* Common Navigator */
 /********************/
+header.commonHeader {
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+}
+
 .common-navbar {
-    background-color: #3c3d3d;
+    position: relative;
+    min-height: 35px;
+    height: 35px;
+    background-color: #323e4e;
+    /*background-color: #3c3d3d;*/
     border-width: 0 0 0 0;
     margin-bottom: 0px;
-    height: 32px;
 }
 
 .common-navbar .navbar-brand {
     padding: 0px 15px;
-    height: 32px;
+    height: 35px;
 }
 
 .common-navbar .navbar-contents{
@@ -45,7 +54,7 @@
 }
 
 .common-navbar .navbar-contents .navbar-nav > li > a {
-    line-height: 12px;
+    line-height: 15px;
     color: #fff;
     position: relative;
     display: block;
@@ -66,6 +75,19 @@
     text-decoration: none;
 
 }
+
+.common-navbar:before,
+.common-navbar .navbar-contents .navbar-nav.navbar-right:before {
+    content: " ";
+    display: table;
+}
+.common-navbar:after,
+.common-navbar .navbar-contents .navbar-nav.navbar-right:after {
+    content: " ";
+    display: table;
+    clear: both;
+}
+
 .hide-with-animation{
     padding-left:0px !important;
     width: 0px !important;
@@ -87,36 +109,34 @@
 /* 공통네비게이션 Bootstrap override */
 /*************************************/
 .navbar-form{
-    margin-top: 4px;
-    margin-bottom: 4px;
-    padding-right: 0px;
-    position: absolute;
+    position: static;
+    /*position: absolute;*/
+    margin: 5px 0px 5px 0px;
     right: 0;
 }
 
 .navbar-form input.form-control{
     opacity: 1;
     width: 211px;
-    height: 24px;
+    height: 25px;
     padding: 0px 24px 0px 12px;
     -webkit-transition: width .5s ease-out, border .1s ease-out, box-shadow .1s, background-color .5s ease-out;
 }
 
 .navbar-form button{
-    position: absolute;
+    position: static;
+    margin: 1px 1px 0px -30px;
+    /*position: absolute;*/
     top: 0;
     bottom: 0;
     right: 0;
-    width: 23px;
-    height: 23px;
+    width: 24px;
+    height: 24px;
     border: none;
     background-color: transparent;
     cursor: pointer;
     color: #3c3d3d;
     padding: 0px 6px 0px 6px;
-    margin-top: 1px;
-    margin-bottom: 0px;
-    margin-right: 1px;
 }
 .navbar-form .btn:hover,
 .navbar-form .btn:focus,

@@ -1,30 +1,32 @@
-ol, ul {
-    list-style: none;
-}
-
 /* Browser Default CSS Event Disable */
 :focus {
     outline: none;
 }
 
-header {
-    position: fixed;
-    width: 100%;
-    z-index: 1000;
+body, h1, h2, h3, h4, h5, h6, li, a, p {
+    font-family: "Nanum Gothic" !important;
+}
+
+ol, ul {
+    list-style: none;
 }
 
 main {
-    top: 85px;
+    top: 35px;
+    /*top: 200px;*/
+    /*top: 85px;*/
     position: fixed;
     width: 100%;
     overflow-y: scroll;
-    height: -webkit-calc(100% - 85px); /* for Chrome, Safari */
-    height:    -moz-calc(100% - 85px); /* for Firefox */
-    height:         calc(100% - 85px); /* for IE */
+    height: -webkit-calc(100% - 35px); /* for Chrome, Safari */
+    height:    -moz-calc(100% - 35px); /* for Firefox */
+    height:         calc(100% - 35px); /* for IE */
 }
 
 .masthead {
-    background-color: #337ab7;
+    background-color: #fff;
+    /*background-color: #5F9EA0;*/
+    /*background-color: #337ab7;*/
     /*background-color: #FFFFFF;*/
     /*background-color: #FFF6E5;*/
     height: auto;

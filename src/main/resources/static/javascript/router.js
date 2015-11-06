@@ -7,14 +7,16 @@
 // Set Router
 var Router = Backbone.Router.extend({
 
-    header: null,
+    commonHeader: null,
+    portalHeader: null,
     footer: null,
     container: null,
     portalMain: null,
     privacyPolicyPopup: null,
 
     initialize: function(){
-        this.header = new HeaderView();
+        this.commonHeader = new CommonHeaderView();
+        this.portalHeader = new PortalHeaderView();
         this.footer = new FooterView();
         this.container = new ContainerView({
             el: $("#mainContents")
@@ -35,6 +37,9 @@ var Router = Backbone.Router.extend({
         if(this.privacyPolicyPopup == null){
             this.privacyPolicyPopup = new PrivacyPolicyPopupView();
         }
+        if(this.portalMain == null){
+            this.handlePortalMainView();
+        }
         var modal = new Backbone.BootstrapModal({
             content: this.privacyPolicyPopup,
             title: '개인정보 취급방침',
@@ -42,49 +47,34 @@ var Router = Backbone.Router.extend({
             allowHeaderCancel: true,
             allowCancel: false,
             okText: '확인',
-            template: _.template('\
-                <div class="modal-dialog privacy"><div class="modal-content">\
-                <% if (title) { %>\
-                  <div class="modal-header">\
-                    <% if (allowHeaderCancel) { %>\
-                      <a class="close">&times;</a>\
-                    <% } %>\
-                    <h4><%=title%></h4>\
-                  </div>\
-                <% } %>\
-                <div class="modal-body">{{content}}</div>\
-                <% if (showFooter) { %>\
-                  <div class="modal-footer">\
-                    <% if (allowCancel) { %>\
-                      <% if (cancelText) { %>\
-                        <a href="#" class="btn cancel">{{cancelText}}</a>\
-                      <% } %>\
-                    <% } %>\
-                    <a href="#" class="btn ok btn-primary"><%=okText%></a>\
-                  </div>\
-                <% } %>\
-                </div></div>\
-            ')
+            template: ReadOnlyPopupTemplate
         });
         modal.open(function(){
-            if(this.portalMain != null){
-                history.back();
-            }else{
-                window.location.hash = "#";
-            }
+            window.location.hash = "#";
         });
 
     }
 });
 
 // Drawing HeaderView
-var HeaderView =  Backbone.View.extend({
-    el: $('header'),
+var CommonHeaderView =  Backbone.View.extend({
+    el: $('#commonHeader'),
     initialize: function(){
         this.render();
     },
     render: function(){
-        $(this.el).append(GetHtml('header.html'));
+        $(this.el).append(GetHtml('common-header.html'));
+    }
+});
+
+// Drawing HeaderView
+var PortalHeaderView =  Backbone.View.extend({
+    el: $('#portalHeader'),
+    initialize: function(){
+        this.render();
+    },
+    render: function(){
+        $(this.el).append(GetHtml('portal-header.html'));
     }
 });
 
@@ -120,7 +110,7 @@ var PortalMainView = Backbone.View.extend({
 
 var PrivacyPolicyPopupView = Backbone.View.extend({
     render: function(){
-        $(this.el).append(GetHtml('privacy-policy-popup.html'));
+        $(this.el).append(GetHtml('popup/privacy-policy-popup.html'));
         return this;
     }
 });
