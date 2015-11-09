@@ -56,13 +56,8 @@ header.portalHeader {
     color: #fff;
     text-decoration: none;
 }
-.anyframe-log {
-    height: 53px;
-    width: 304px;
-    background-image: url('../img/logo_sub.jpg');
-}
 
-.portal-navbar .navbar-contents{
+.portal-navbar .navbar-menu {
     display: block;
     height: auto;
     background-color: inherit;
@@ -75,7 +70,7 @@ header.portalHeader {
     z-index: 1;
 }
 
-.portal-navbar .navbar-contents.is-fixed {
+.portal-navbar .navbar-menu.is-fixed {
     margin: 0;
     position: fixed;
     top: 35px;
@@ -86,51 +81,52 @@ header.portalHeader {
     /*background: blue;*/
 }
 
-.portal-navbar .navbar-contents:before {
+.portal-navbar .navbar-menu:before {
     content: " ";
     display: table;
 }
-.portal-navbar .navbar-contents:after {
+.portal-navbar .navbar-menu:after {
     content: " ";
     display: table;
     clear: both;
 }
 
-.portal-navbar .navbar-contents .navbar-nav{
+.portal-navbar .navbar-menu .navbar-nav{
     float: left;
     margin: 0;
     padding-left: 0;
     list-style: none;
 }
 
-.portal-navbar .navbar-contents .navbar-nav > li{
+.portal-navbar .navbar-menu .navbar-nav > li{
     float: left;
     position: relative;
     display: block;
 }
 
-.portal-navbar .navbar-contents .navbar-nav > li > a {
+.portal-navbar .navbar-menu .navbar-nav > li > a {
     line-height: 25px;
     color: #fff;
     position: relative;
     display: block;
     padding: 10px 15px;
 }
-.portal-navbar .navbar-contents .navbar-nav > li > a:hover,
-.portal-navbar .navbar-contents .navbar-nav > li > a:focus {
+.portal-navbar .navbar-menu .navbar-nav > li > a:hover,
+.portal-navbar .navbar-menu .navbar-nav > li > a:focus {
     /*background-color: #e6e6e6;*/
     /*border-color: #adadad;*/
     text-decoration: none;
     color: #a2a3a4;
 }
-.portal-navbar .navbar-contents .navbar-nav > .active > a,
-.portal-navbar .navbar-contents .navbar-nav > .active > a:hover,
-.portal-navbar .navbar-contents .navbar-nav > .active > a:focus {
+.portal-navbar .navbar-menu .navbar-nav > .active > a,
+.portal-navbar .navbar-menu .navbar-nav > .active > a:hover,
+.portal-navbar .navbar-menu .navbar-nav > .active > a:focus {
     color: #FFFFFF;
     /*background-color: #2185C5;*/
     text-decoration: none;
 
 }
+
 /***************************************/
 /* Portal Navigator Bootstrap Override */
 /***************************************/
@@ -164,4 +160,16 @@ header.portalHeader {
 .navbar-right {
     float: right !important;
     margin-right: 0px;
+}
+
+
+.dropdown.open{
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+    background-color: #fff;
+}
+
+.dropdown-menu{
+    border-top: 0px;
+    background-color: #fff;
+    border: none;
 }

@@ -109,3 +109,16 @@ main {
 .modal-footer {
     padding: 10px 15px;
 }
+
+/* Logo */
+.anyframe-logo {
+    height: 53px;
+    width: 304px;
+    background-image: url('../img/logo_sub.jpg');
+}
+.anyframe-small-logo {
+    height: 27px;
+    width: 159px;
+    background-image: url('../img/logo_original_159x27.png');
+    margin: 4px 0;
+}

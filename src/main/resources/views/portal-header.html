@@ -4,12 +4,26 @@
             <a href="http://localhost:8080" rel="home">Anyframe Community</a>
         </h1>
     </div>
-    <div class="navbar-contents">
-        <div class="container-fluid">
+    <div class="navbar-menu">
+        <div class="container">
             <ul class="navbar-nav">
-                <li><a href="#">프로젝트</a></li>
-                <li><a href="#">공지사항</a></li>
-                <li><a href="#">교육일정</a></li>
+                <li class="dropdown">
+                    <a id="dLabel" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">프로젝트 <span class="caret"></span></a>
+                    <ul class="dropdown-menu" aria-labelledby="dLabel">
+                        <li><a href="#project">Overview</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#project/core">Core</a></li>
+                        <li><a href="#project/code-generator">Code Generator</a></li>
+                        <li><a href="#project/query-manager">Query Manager</a></li>
+                        <li><a href="#project/oden">ODEN</a></li>
+                        <li><a href="#project/log-manager">Log Manager</a></li>
+                        <li><a href="#project/batch">Batch</a></li>
+                        <li><a href="#project/iam">IAM</a></li>
+                        <li><a href="#project/monitoring">Monitoring</a></li>
+                    </ul>
+                </li>
+                <li><a href="#notice">공지사항</a></li>
+                <li><a href="#education-schedule">교육일정</a></li>
             </ul>
         </div>
     </div>
@@ -18,8 +32,8 @@
     var fix_class = 'is-fixed';
 
     function stickyScroll(e) {
-        var scrollLength = $('.portal-navbar').height() - $('.portal-navbar .navbar-contents').height();
-        var menu = $('.portal-navbar .navbar-contents');
+        var scrollLength = $('.portal-navbar').height() - $('.portal-navbar .navbar-menu').height();
+        var menu = $('.portal-navbar .navbar-menu');
         if( $(this).scrollTop() > scrollLength  && !menu.hasClass(fix_class)) {
             menu.addClass(fix_class);
         }

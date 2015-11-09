@@ -13,6 +13,17 @@ var Router = Backbone.Router.extend({
     container: null,
     portalMain: null,
     privacyPolicyPopup: null,
+    projectOverview: null,
+    projectCore: null,
+    projectCodeGenerator: null,
+    projectQueryManager: null,
+    projectOden: null,
+    projectLogManager: null,
+    projectBatch: null,
+    projectIam: null,
+    projectMonitoring: null,
+    notice: null,
+    educationSchedule: null,
 
     initialize: function(){
         this.commonHeader = new CommonHeaderView();
@@ -24,7 +35,19 @@ var Router = Backbone.Router.extend({
     },
     routes: {
         "": "handlePortalMainView",
-        "privacy-policy": "handlePrivacyPolicyPopupView"
+        "privacy-policy": "handlePrivacyPolicyPopupView",
+        "project": "handleProjectOverviewView",
+        "project/core": "handleProjectCoreView",
+        "project/code-generator": "handleProjectCodeGeneratorView",
+        "project/query-manager": "handleProjectQueryManagerView",
+        "project/oden": "handleProjectOdenView",
+        "project/log-manager": "handleProjectLogManagerView",
+        "project/batch": "handleProjectBatchView",
+        "project/iam": "handleProjectIamView",
+        "project/monitoring": "handleProjectMonitoringView",
+        "notice": "handleNoticeView",
+        "education-schedule": "handleEducationScheduleView"
+
     },
     handlePortalMainView: function() {
         if(this.portalMain == null){
@@ -52,8 +75,86 @@ var Router = Backbone.Router.extend({
         modal.open(function(){
             window.location.hash = "#";
         });
+    },
+    handleProjectOverviewView: function(){
+        if(this.projectOverview == null){
+            this.projectOverview = new ProjectOverviewView();
+        }
+        this.container.contents = this.projectOverview;
+        this.container.render();
+    },
+    handleProjectCoreView: function(){
+        if(this.projectCore == null){
+            this.projectCore = new ProjectCoreView();
+        }
+        this.container.contents = this.projectCore;
+        this.container.render();
+    },
+    handleProjectCodeGeneratorView: function(){
+        if(this.projectCodeGenerator == null){
+            this.projectCodeGenerator = new ProjectCodeGeneratorView();
+        }
+        this.container.contents = this.projectCodeGenerator;
+        this.container.render();
+    },
+    handleProjectQueryManagerView: function(){
+        if(this.projectQueryManager == null){
+            this.projectQueryManager = new ProjectQueryManagerView();
+        }
+        this.container.contents = this.projectQueryManager;
+        this.container.render();
+    },
+    handleProjectOdenView: function(){
+        if(this.projectOden == null){
+            this.projectOden = new ProjectOdenView();
+        }
+        this.container.contents = this.projectOden;
+        this.container.render();
+    },
+    handleProjectLogManagerView: function(){
+        if(this.projectLogManager == null){
+            this.projectLogManager = new ProjectLogManagerView();
+        }
+        this.container.contents = this.projectLogManager;
+        this.container.render();
+    },
+    handleProjectBatchView: function(){
+        if(this.projectBatch == null){
+            this.projectBatch = new ProjectBatchView();
+        }
+        this.container.contents = this.projectBatch;
+        this.container.render();
+    },
+    handleProjectIamView: function(){
+        if(this.projectIam == null){
+            this.projectIam = new ProjectIamView();
+        }
+        this.container.contents = this.projectIam;
+        this.container.render();
+    },
+    handleProjectMonitoringView: function(){
+        if(this.projectMonitoring == null){
+            this.projectMonitoring = new ProjectMonitoringView();
+        }
+        this.container.contents = this.projectMonitoring;
+        this.container.render();
 
+    },
+    handleNoticeView: function(){
+        if(this.notice == null){
+            this.notice = new NoticeView();
+        }
+        this.container.contents = this.notice;
+        this.container.render();
+    },
+    handleEducationScheduleView: function(){
+        if(this.educationSchedule == null){
+            this.educationSchedule = new EducationScheduleView();
+        }
+        this.container.contents = this.educationSchedule;
+        this.container.render();
     }
+
 });
 
 // Drawing HeaderView
@@ -93,7 +194,7 @@ var FooterView = Backbone.View.extend({
 var ContainerView = Backbone.View.extend({
     contents: null,
     render: function(){
-        this.$el.append(this.contents.$el);
+        this.$el.html(this.contents.$el);
         return this;
     }
 });
@@ -125,10 +226,101 @@ var ModalView = function(popupView) {
 };
 
 
+// Project Views
+var ProjectOverviewView = Backbone.View.extend({
+    initialize: function(){
+        this.render();
+    },
+    render: function(){
+        $(this.el).append(GetHtml('project-overview.html'));
+    }
+});
+var ProjectCoreView = Backbone.View.extend({
+    initialize: function(){
+        this.render();
+    },
+    render: function(){
+        $(this.el).append(GetHtml('project-core.html'));
+    }
+});
+var ProjectCodeGeneratorView = Backbone.View.extend({
+    initialize: function(){
+        this.render();
+    },
+    render: function(){
+        $(this.el).append(GetHtml('project-code-generator.html'));
+    }
+});
+var ProjectQueryManagerView = Backbone.View.extend({
+    initialize: function(){
+        this.render();
+    },
+    render: function(){
+        $(this.el).append(GetHtml('project-query-manager.html'));
+    }
+});
+var ProjectOdenView = Backbone.View.extend({
+    initialize: function(){
+        this.render();
+    },
+    render: function(){
+        $(this.el).append(GetHtml('project-oden.html'));
+    }
+});
+var ProjectLogManagerView = Backbone.View.extend({
+    initialize: function(){
+        this.render();
+    },
+    render: function(){
+        $(this.el).append(GetHtml('project-log-manager.html'));
+    }
+});
+var ProjectBatchView = Backbone.View.extend({
+    initialize: function(){
+        this.render();
+    },
+    render: function(){
+        $(this.el).append(GetHtml('project-batch.html'));
+    }
+});
+var ProjectIamView = Backbone.View.extend({
+    initialize: function(){
+        this.render();
+    },
+    render: function(){
+        $(this.el).append(GetHtml('project-iam.html'));
+    }
+});
+var ProjectMonitoringView = Backbone.View.extend({
+    initialize: function(){
+        this.render();
+    },
+    render: function(){
+        $(this.el).append(GetHtml('project-monitoring.html'));
+    }
+});
 
 
+// Notice View
+var NoticeView = Backbone.View.extend({
+    initialize: function(){
+        this.render();
+    },
+    render: function(){
+        $(this.el).append(GetHtml('notice.html'));
+    }
+});
 
 
+// Education Schedule View
+var EducationScheduleView = Backbone.View.extend({
+    initialize: function(){
+        this.render();
+    },
+    render: function(){
+        $(this.el).append(GetHtml('education-schedule.html'));
+    }
+});
 
 
 // Routing Views
