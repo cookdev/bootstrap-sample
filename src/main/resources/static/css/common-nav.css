@@ -48,6 +48,9 @@ header.common-header {
 .common-navbar .navbar-menu {
     background-color: white;
 }
+.common-navbar .navbar-menu.collapse.in{
+    box-shadow: rgba(0, 0, 0, 0.172549) 0px 6px 12px;
+}
 .common-navbar .navbar-menu .navbar-nav > li > a {
     line-height: 15px;
     font-size: 12px;

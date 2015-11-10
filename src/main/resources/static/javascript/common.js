@@ -13,11 +13,22 @@ var GetHtml = function(url){
     return getFile.responseText;
 }
 
+
+// Dropdown 활성화시 Collapse 안 닫히는 현상 컨트롤
+$(document).ready(function(){
+    $('.dropdown').on('show.bs.dropdown', function () {
+        $('#navbar-collapse').collapse('hide')
+    })
+});
+
 /* 반응형WEB 구현을 위해
  * Window Resize에 따른 주요 컴포넌트 CSS조정 */
 window.onresize = function WriteScreen(){
     var width = $(document).width();
     var height = $(document).height();
+
+    // 공통헤더 Collapse 접기(.in 제거)
+    $('#navbar-collapse').collapse('hide');
 
     // 공통네비게이션 검색창
     //if($('.navbar-form input')){

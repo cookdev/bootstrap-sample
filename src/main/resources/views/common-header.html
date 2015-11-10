@@ -1,11 +1,6 @@
 <!-- Common HeaderView bar Start -->
 <nav class="navbar common-navbar">
     <div class="container-fluid">
-        <!--<div class="navbar-header">-->
-            <!--<a class="navbar-brand" href="#">-->
-                <!--&lt;!&ndash;<img alt="Brand" src="/img/logo_sub.jpg">&ndash;&gt;-->
-            <!--</a>-->
-        <!--</div>-->
         <div class="navbar-header">
 
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
@@ -55,25 +50,3 @@
         </div>
     </div>
 </nav>
-
-<script type="text/javascript">
-    // Dropdown 활성화시 Collapse 안 닫히는 현상 컨트롤
-    $(document).ready(function(){
-        $('.dropdown').on('show.bs.dropdown', function () {
-            $('#navbar-collapse').collapse('hide')
-        })
-    });
-//    $(document).ready(function(){
-//        $('.navbar-form button').on('click', function(){
-//            //                                debugger;
-//            if($('.navbar-form input').hasClass('hide-with-animation')){
-//                $('.navbar-form input').removeClass('hide-with-animation');
-//                $('.navbar-form button').removeClass('search-text');
-//            }else{
-//                $('.navbar-form input').addClass('hide-with-animation');
-//                $('.navbar-form button').addClass('search-text');
-//            }
-//        });
-//
-//    });
-</script>
