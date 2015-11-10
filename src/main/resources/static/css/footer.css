@@ -45,10 +45,8 @@
 .footer .nav-list-inline li +li {
     margin-left: 2px;
 }
-/*.footer.contents .row:last-child{*/
-/*margin-top: 35px;*/
-/*}*/
-.footer .contents .row div{
+
+.footer .footer-sitemap .row div{
     margin-top: 35px;
 }
 

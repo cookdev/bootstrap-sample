@@ -2,6 +2,9 @@
 :focus {
     outline: none;
 }
+body {
+    padding-top: 35px;
+}
 
 body, h1, h2, h3, h4, h5, h6, li, a, p {
     font-family: "Nanum Gothic" !important;
@@ -12,12 +15,12 @@ ol, ul {
 }
 
 main {
-    top: 35px;
     /*top: 200px;*/
     /*top: 85px;*/
-    position: fixed;
+    position: static;
+    /*position: fixed;*/
     width: 100%;
-    overflow-y: scroll;
+    /*overflow-y: scroll;*/
     height: -webkit-calc(100% - 35px); /* for Chrome, Safari */
     height:    -moz-calc(100% - 35px); /* for Firefox */
     height:         calc(100% - 35px); /* for IE */
@@ -31,6 +34,7 @@ main {
     /*background-color: #FFF6E5;*/
     height: auto;
     max-height: 368px;
+    min-height: 112px
     /*border-bottom: solid 2px #bdbbbc;*/
 }
 

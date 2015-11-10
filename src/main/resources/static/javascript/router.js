@@ -159,7 +159,7 @@ var Router = Backbone.Router.extend({
 
 // Drawing HeaderView
 var CommonHeaderView =  Backbone.View.extend({
-    el: $('#commonHeader'),
+    el: $('.common-header'),
     initialize: function(){
         this.render();
     },
@@ -170,7 +170,7 @@ var CommonHeaderView =  Backbone.View.extend({
 
 // Drawing HeaderView
 var PortalHeaderView =  Backbone.View.extend({
-    el: $('#portalHeader'),
+    el: $('.portal-header'),
     initialize: function(){
         this.render();
     },
@@ -181,7 +181,7 @@ var PortalHeaderView =  Backbone.View.extend({
 
 // Drawing FooterView
 var FooterView = Backbone.View.extend({
-    el: $('footer'),
+    el: $('.portal-footer'),
     initialize: function(){
         this.render();
     },

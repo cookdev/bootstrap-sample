@@ -20,13 +20,13 @@ window.onresize = function WriteScreen(){
     var height = $(document).height();
 
     // 공통네비게이션 검색창
-    if($('.navbar-form input')){
-        if (width < 883){
-            $('.navbar-form input').addClass('hide-with-animation');
-        }else{
-            $('.navbar-form input').removeClass('hide-with-animation');
-        }
-    }
+    //if($('.navbar-form input')){
+    //    if (width < 883){
+    //        $('.navbar-form input').addClass('hide-with-animation');
+    //    }else{
+    //        $('.navbar-form input').removeClass('hide-with-animation');
+    //    }
+    //}
 
     // 팝업
     if($('.modal-body')){
