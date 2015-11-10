@@ -1,0 +1,107 @@
+@media (max-width: 767px) {
+    .project-container{
+        height: 300px !important;
+    }
+    .project-container .project-logo-container{
+        margin-bottom: 15px !important;
+    }
+    .project-container .project-title{
+        margin-bottom: 10px !important;
+    }
+    .project-container .project-description{
+        margin-bottom: 0px;
+    }
+}
+
+.project-container{
+    /*border: 1px solid #34302d;*/
+    display: inline-block;
+    height: 340px;
+    /*margin: 0 .5% 20px;*/
+    vertical-align: top;
+    text-align: center;
+    padding: 30px 5%;
+}
+
+.project-container .project-logo-container {
+    margin-bottom: 25px;
+    height: 137px;
+    vertical-align: middle;
+}
+.project-logo.logo-anyframe {
+    float: left;
+    width: 81px;
+    height: 82px;
+    background-image: url('../img/logo_anyframe.png');
+    margin: 0px 20px 10px 0px;
+}
+.icon.project-logo.logo-core {
+    width: 81px;
+    height: 82px;
+    background-image: url('../img/logo_core.png');
+    margin-top: 23px;
+}
+.icon.project-logo.logo-code-generator {
+    width: 81px;
+    height: 82px;
+    background-image: url('../img/logo_code_gen.png');
+    margin-top: 23px;
+}
+.icon.project-logo.logo-query-manager {
+    width: 81px;
+    height: 82px;
+    background-image: url('../img/logo_query_man.png');
+    margin-top: 23px;
+}
+.icon.project-logo.logo-oden {
+    width: 81px;
+    height: 82px;
+    background-image: url('../img/logo_oden.png');
+    margin-top: 23px;
+}
+.icon.project-logo.logo-log-manager {
+    width: 81px;
+    height: 82px;
+    background-image: url('../img/logo_log_man.png');
+    margin-top: 23px;
+}
+.icon.project-logo.logo-batch {
+    width: 81px;
+    height: 82px;
+    background-image: url('../img/logo_batch.png');
+    margin-top: 23px;
+}
+.icon.project-logo.logo-iam {
+    width: 81px;
+    height: 82px;
+    background-image: url('../img/logo_iam.png');
+    margin-top: 23px;
+}
+.icon.project-logo.logo-monitoring {
+    width: 81px;
+    height: 82px;
+    background-image: url('../img/logo_monitoring.png');
+    margin-top: 23px;
+}
+.project-container .project-logo {
+    display: inline-block;
+    vertical-align: middle;
+}
+.icon {
+    display: inline-block!important;
+}
+
+.project-container .project-title {
+    /*font-family: Montserrat,sans-serif;*/
+    font-size: 20px;
+    line-height: 20px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    font-weight: bolder;
+}
+
+.project-container .project-description {
+    font-size: 12px;
+    line-height: 20px;
+    color: #000;
+}

@@ -10,6 +10,10 @@ body, h1, h2, h3, h4, h5, h6, li, a, p {
     font-family: "Nanum Gothic" !important;
 }
 
+a:hover, a:focus {
+    text-decoration: none;
+}
+
 ol, ul {
     list-style: none;
 }
@@ -45,8 +49,6 @@ main {
 .anyframe-contents {
     background-color: #fff;
 }
-
-
 
 .anyframe-sample {
     background-color: #f2f1f2;
@@ -125,4 +127,31 @@ main {
     width: 159px;
     background-image: url('../img/logo_original_159x27.png');
     margin: 4px 0;
+}
+
+
+
+/* Main Contents */
+.main-container-wrapper{
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+@media (max-width: 767px) {
+    .main-container-wrapper{
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
+}
+.main-container-wrapper > section{
+    background-color: whitesmoke;
+}
+
+.main-title{
+    color: #000;
+    font-weight: bold
+}
+.sub-title {
+    font-size: 16px;
+    line-height: 24px;
+    margin: 30px 0 60px;
 }
