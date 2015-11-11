@@ -41,7 +41,7 @@ public class SSOController {
 		
 		response.addCookie(cookie);
 		
-		Cookie cookie2 = new Cookie("wordpress_sec_81072bb0499f294888ff48c5f2cf3308", authCookie.getCookie());
+		Cookie cookie2 = new Cookie(authCookie.getCookieName().replace("logged_in", "sec"), authCookie.getCookie());
 		
 		cookie2.setDomain(".ssc.com");
 		cookie2.setPath("/wp-content/plugins");
@@ -51,7 +51,7 @@ public class SSOController {
 		
 		response.addCookie(cookie2);
 		
-		Cookie cookie3 = new Cookie("wordpress_sec_81072bb0499f294888ff48c5f2cf3308", authCookie.getCookie());
+		Cookie cookie3 = new Cookie(authCookie.getCookieName().replace("logged_in", "sec"), authCookie.getCookie());
 		
 		cookie3.setDomain(".ssc.com");
 		cookie3.setPath("/wp-admin");
@@ -59,7 +59,7 @@ public class SSOController {
 		cookie3.setHttpOnly(true);
 		cookie3.setSecure(true);
 		
-		response.addCookie(cookie2);
+		response.addCookie(cookie3);
 		
 		return authCookie.toString();
 		
