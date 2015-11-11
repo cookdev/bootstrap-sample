@@ -27,7 +27,7 @@ public class SSOController {
 				
 		GenerateAuthCookie authCookie = restTemplate.getForObject(url, GenerateAuthCookie.class);
 		
-		authCookie.setCookie(authCookie.getCookie().replace("|", "%7C"));
+		// authCookie.setCookie(authCookie.getCookie().replace("|", "%7C"));
 		
 		System.out.println(authCookie);
 		
