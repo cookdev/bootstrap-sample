@@ -14,7 +14,6 @@ import org.springframework.web.client.RestTemplate;
 @Controller("SSOController")
 public class SSOController {
 	
-	// @Autowired
 	private RestTemplate restTemplate = new RestTemplate();
 	
 	@ResponseBody
@@ -27,13 +26,11 @@ public class SSOController {
 				
 		GenerateAuthCookie authCookie = restTemplate.getForObject(url, GenerateAuthCookie.class);
 		
-		// authCookie.setCookie(authCookie.getCookie().replace("|", "%7C"));
-		
 		System.out.println(authCookie);
 		
 		Cookie cookie = new Cookie(authCookie.getCookieName(), authCookie.getCookie());
 		
-		cookie.setDomain("forum.ssc.com");
+		cookie.setDomain(".ssc.com");
 		cookie.setPath("/");
 		cookie.setMaxAge(-1);
 		cookie.setHttpOnly(true);
@@ -43,7 +40,7 @@ public class SSOController {
 		
 		Cookie cookie2 = new Cookie(authCookie.getCookieName().replace("logged_in", "sec"), authCookie.getCookie());
 		
-		cookie2.setDomain("forum.ssc.com");
+		cookie2.setDomain(".ssc.com");
 		cookie2.setPath("/wp-content/plugins");
 		cookie2.setMaxAge(-1);
 		cookie2.setHttpOnly(true);
@@ -53,7 +50,7 @@ public class SSOController {
 		
 		Cookie cookie3 = new Cookie(authCookie.getCookieName().replace("logged_in", "sec"), authCookie.getCookie());
 		
-		cookie3.setDomain("forum.ssc.com");
+		cookie3.setDomain(".ssc.com");
 		cookie3.setPath("/wp-admin");
 		cookie3.setMaxAge(-1);
 		cookie3.setHttpOnly(true);
