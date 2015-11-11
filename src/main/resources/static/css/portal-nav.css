@@ -20,7 +20,8 @@ header.portalHeader {
     font-family: Raleway, Arial, Helvetica, sans-serif;
     text-transform: uppercase;
     letter-spacing: 2px;
-    background-color: #bed4df;
+    /*background-color: #bed4df;*/
+    background-color: darkslateblue;
 }
 
 .portal-navbar .navbar-header{

@@ -10,6 +10,10 @@ body, h1, h2, h3, h4, h5, h6, li, a, p {
     font-family: "Nanum Gothic" !important;
 }
 
+body, h1, h2, h3, h4, h5, h6, li, p {
+    color: #34302d;
+}
+
 a:hover, a:focus {
     text-decoration: none;
 }
@@ -25,9 +29,9 @@ main {
     /*position: fixed;*/
     width: 100%;
     /*overflow-y: scroll;*/
-    height: -webkit-calc(100% - 35px); /* for Chrome, Safari */
-    height:    -moz-calc(100% - 35px); /* for Firefox */
-    height:         calc(100% - 35px); /* for IE */
+    /*height: -webkit-calc(100% - 35px); /!* for Chrome, Safari *!/*/
+    /*height:    -moz-calc(100% - 35px); /!* for Firefox *!/*/
+    /*height:         calc(100% - 35px); /!* for IE *!/*/
 }
 
 .masthead {
@@ -77,6 +81,51 @@ main {
     -webkit-transition: width .5s ease-out;
 }
 
+/* Main Container 공통 */
+.main-container-wrapper{
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+@media (max-width: 767px) {
+    .main-container-wrapper{
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
+}
+
+.main-container-wrapper > .title{
+    margin: 0px 20px 10px 0px;
+    display: table;
+    background-repeat: no-repeat;
+    width: 100%;
+}
+.main-container-wrapper > .description {
+    margin: 30px 0 60px;
+}
+.main-container-wrapper > .description > p {
+    text-indent: 24px;
+    font-size: 16px;
+    line-height: 24px;
+}
+.main-container-wrapper > .main-content{
+    margin-bottom: 30px;
+}
+
+/* Logo */
+.anyframe-logo {
+    height: 53px;
+    width: 304px;
+    background-image: url('../img/logo_sub.jpg');
+}
+.anyframe-small-logo {
+    height: 27px;
+    width: 159px;
+    background-image: url('../img/logo_original_159x27.png');
+    margin: 4px 0;
+}
+
+
+
 /* Modal */
 /* 개인정보취급방침 팝업 */
 
@@ -114,44 +163,4 @@ main {
 
 .modal-footer {
     padding: 10px 15px;
-}
-
-/* Logo */
-.anyframe-logo {
-    height: 53px;
-    width: 304px;
-    background-image: url('../img/logo_sub.jpg');
-}
-.anyframe-small-logo {
-    height: 27px;
-    width: 159px;
-    background-image: url('../img/logo_original_159x27.png');
-    margin: 4px 0;
-}
-
-
-
-/* Main Contents */
-.main-container-wrapper{
-    margin-top: 100px;
-    margin-bottom: 100px;
-}
-@media (max-width: 767px) {
-    .main-container-wrapper{
-        margin-top: 50px;
-        margin-bottom: 50px;
-    }
-}
-.main-container-wrapper > section{
-    background-color: whitesmoke;
-}
-
-.main-title{
-    color: #000;
-    font-weight: bold
-}
-.sub-title {
-    font-size: 16px;
-    line-height: 24px;
-    margin: 30px 0 60px;
 }

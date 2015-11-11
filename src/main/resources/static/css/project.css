@@ -1,3 +1,30 @@
+.project-overview > .title {
+    height: 82px;
+    background-image: url('../img/logo_anyframe.png');
+    /*height: 128px;*/
+    /*background-image: url('../img/icon/Dashboard.png');*/
+}
+.project-overview > .title > .main-title{
+    font-weight: bold;
+    margin-top: 0px;
+    border-bottom-width: 0px;
+    margin-bottom: 0px;
+    vertical-align: middle;
+    display: table-cell;
+    /*padding-left: 140px;*/
+    padding-left: 100px;
+}
+.project-overview > .main-content {
+     background-color: whitesmoke;
+}
+
+.project-container{
+    display: inline-block;
+    height: 340px;
+    vertical-align: top;
+    text-align: center;
+    padding: 30px 5%;
+}
 @media (max-width: 767px) {
     .project-container{
         height: 300px !important;
@@ -13,82 +40,64 @@
     }
 }
 
-.project-container{
-    /*border: 1px solid #34302d;*/
-    display: inline-block;
-    height: 340px;
-    /*margin: 0 .5% 20px;*/
-    vertical-align: top;
-    text-align: center;
-    padding: 30px 5%;
-}
-
 .project-container .project-logo-container {
     margin-bottom: 25px;
     height: 137px;
     vertical-align: middle;
 }
-.project-logo.logo-anyframe {
-    float: left;
-    width: 81px;
-    height: 82px;
-    background-image: url('../img/logo_anyframe.png');
-    margin: 0px 20px 10px 0px;
+
+.project-container .logo {
+    display: inline-block!important;
+    vertical-align: middle;
 }
-.icon.project-logo.logo-core {
+
+.logo-project-core {
     width: 81px;
     height: 82px;
     background-image: url('../img/logo_core.png');
     margin-top: 23px;
 }
-.icon.project-logo.logo-code-generator {
+.logo-project-code-generator {
     width: 81px;
     height: 82px;
     background-image: url('../img/logo_code_gen.png');
     margin-top: 23px;
 }
-.icon.project-logo.logo-query-manager {
+.logo-project-query-manager {
     width: 81px;
     height: 82px;
     background-image: url('../img/logo_query_man.png');
     margin-top: 23px;
 }
-.icon.project-logo.logo-oden {
+.logo-project-oden {
     width: 81px;
     height: 82px;
     background-image: url('../img/logo_oden.png');
     margin-top: 23px;
 }
-.icon.project-logo.logo-log-manager {
+.logo-project-log-manager {
     width: 81px;
     height: 82px;
     background-image: url('../img/logo_log_man.png');
     margin-top: 23px;
 }
-.icon.project-logo.logo-batch {
+.logo-project-batch {
     width: 81px;
     height: 82px;
     background-image: url('../img/logo_batch.png');
     margin-top: 23px;
 }
-.icon.project-logo.logo-iam {
+.logo-project-iam {
     width: 81px;
     height: 82px;
     background-image: url('../img/logo_iam.png');
     margin-top: 23px;
 }
-.icon.project-logo.logo-monitoring {
+.logo-project-monitoring {
     width: 81px;
     height: 82px;
     background-image: url('../img/logo_monitoring.png');
     margin-top: 23px;
-}
-.project-container .project-logo {
-    display: inline-block;
-    vertical-align: middle;
-}
-.icon {
-    display: inline-block!important;
 }
 
 .project-container .project-title {

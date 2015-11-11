@@ -1,0 +1,36 @@
+.education-schedule > .title {
+    height: 122px;
+    background-image: url('../img/free-training-2.jpg');
+    /*background-image: url('../img/free-training-1.jpg');*/
+}
+
+.education-schedule > .title > .main-title{
+    font-weight: bold;
+    margin-top: 0px;
+    border-bottom-width: 0px;
+    margin-bottom: 0px;
+    vertical-align: middle;
+    display: table-cell;
+    padding-left: 140px;
+}
+
+.education-overview {
+    list-style: circle;
+}
+.education-overview > li {
+    margin-bottom: 5px;
+}
+
+.education-enrolment{
+    list-style: decimal;
+}
+.education-enrolment > li {
+    margin-bottom: 5px;
+}
+
+.table-hover > tbody > tr:hover {
+     background-color: transparent;
+}
+.table-hover > tbody td:hover {
+    background-color: #f5f5f5;
+}
