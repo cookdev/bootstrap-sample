@@ -124,6 +124,10 @@ main {
     margin: 4px 0;
 }
 
+.project-overview > .title > .icon-logoproject-00 {
+    font-size: 100px;
+}
+
 
 
 /* Modal */
