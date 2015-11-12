@@ -57,11 +57,13 @@ var Router = Backbone.Router.extend({
         this.container.render();
     },
     handlePrivacyPolicyPopupView: function(){
+        var isDirectLink = false;
         if(this.privacyPolicyPopup == null){
             this.privacyPolicyPopup = new PrivacyPolicyPopupView();
         }
-        if(this.portalMain == null){
+        if(this.container.contents == null){
             this.handlePortalMainView();
+            isDirectLink = true;
         }
         var modal = new Backbone.BootstrapModal({
             content: this.privacyPolicyPopup,
@@ -73,7 +75,11 @@ var Router = Backbone.Router.extend({
             template: ReadOnlyPopupTemplate
         });
         modal.open(function(){
-            window.location.hash = "#";
+            if(isDirectLink){
+                window.location.hash = "#";
+            }else{
+                window.history.back();
+            }
         });
     },
     handleProjectOverviewView: function(){
@@ -195,6 +201,7 @@ var ContainerView = Backbone.View.extend({
     contents: null,
     render: function(){
         this.$el.html(this.contents.$el);
+        $(document).scrollTop(0);
         return this;
     }
 });

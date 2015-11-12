@@ -5,16 +5,10 @@
     /*background-image: url('../img/icon/Dashboard.png');*/
 }
 .project-overview > .title > .main-title{
-    font-weight: bold;
-    margin-top: 0px;
-    border-bottom-width: 0px;
-    margin-bottom: 0px;
-    vertical-align: middle;
-    display: table-cell;
     /*padding-left: 140px;*/
     padding-left: 100px;
 }
-.project-overview > .main-content {
+.project-overview .main-contents {
      background-color: whitesmoke;
 }
 
@@ -113,4 +107,42 @@
     font-size: 12px;
     line-height: 20px;
     color: #000;
+}
+
+
+/* Anyframe core 상세페이지 */
+.project-core > .title {
+    background-size: 149px 100px;
+    height: 100px;
+    background-image: url('../img/icon/logoproject_01.png');
+}
+.project-core > .title > .main-title{
+    padding-left: 150px;
+}
+.project-core .feature > ul {
+    list-style: circle;
+}
+.project-core .feature > ul > li {
+    margin-bottom: 5px;
+    line-height: 20px;
+}
+.project-core .document table{
+    margin: 0;
+}
+.project-core .document table th,
+.project-core .document table td{
+    border: none;
+}
+
+.project-core .document .plugins table th:first-child{
+    width: 40%;
+}
+.project-core .document .plugins table th:last-child,
+.project-core .document .plugins table td,{
+    width: 15%;
+    text-align: center;
+}
+
+.project-core .document .panel-body {
+    padding: 0 15px;
 }
