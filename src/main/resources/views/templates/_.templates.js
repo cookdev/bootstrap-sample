@@ -6,7 +6,7 @@ var ReadOnlyPopupTemplate = _.template('\
     <% if (title) { %>\
       <div class="modal-header">\
         <% if (allowHeaderCancel) { %>\
-          <a class="close">&times;</a>\
+          <a class="close ok">&times;</a>\
         <% } %>\
         <h4><%=title%></h4>\
       </div>\
