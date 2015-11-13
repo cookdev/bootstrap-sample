@@ -6,7 +6,7 @@
 }
 .project-overview > .title > .main-title{
     /*padding-left: 140px;*/
-    padding-left: 100px;
+    /*padding-left: 100px;*/
 }
 .project-overview .main-contents {
      background-color: whitesmoke;
@@ -43,6 +43,10 @@
 .project-container .logo {
     display: inline-block!important;
     vertical-align: middle;
+}
+
+.project-container .project-logo-container span {
+    font-size: 100px;
 }
 
 .logo-project-core {
