@@ -114,46 +114,47 @@
 }
 
 
-/* Anyframe core 상세페이지 */
-.project-core > .title {
+/* Anyframe 프로젝트 상세페이지 */
+.project-detail > .title {
     background-size: 149px 100px;
     height: 100px;
     /*background-image: url('../img/icon/logoproject_01.png');*/
 }
 
-.project-core > .title .icon-logoproject-01 {
+.project-detail > .title .icon-logoproject-01, .icon-logoproject-02, .icon-logoproject-03, .icon-logoproject-04, .icon-logoproject-05, .icon-logoproject-06, .icon-logoproject-07, .icon-logoproject-08 {
     font-size: 100px;
     vertical-align: middle;
     margin-right: 20px;
 }
 
-.project-core > .title > .main-title{
+.project-detail > .title > .main-title{
     /*padding-left: 150px;*/
 }
-.project-core .feature > ul {
+.project-detail .feature > ul {
     list-style: circle;
 }
-.project-core .feature > ul > li {
+.project-detail .feature > ul > li {
     margin-bottom: 5px;
     line-height: 20px;
 }
-.project-core .document table{
+.project-detail .document table{
     margin: 0;
 }
-.project-core .document table th,
-.project-core .document table td{
+.project-detail .document table th,
+.project-detail .document table td{
     border: none;
 }
 
-.project-core .document .plugins table th:first-child{
+.project-detail .document .plugins table th:first-child{
     width: 40%;
 }
-.project-core .document .plugins table th:last-child,
-.project-core .document .plugins table td,{
+.project-detail .document .plugins table th:last-child,
+.project-detail .document .plugins table td,{
     width: 15%;
     text-align: center;
 }
 
-.project-core .document .panel-body {
+.project-detail .document .panel-body {
     padding: 0 15px;
 }
+
