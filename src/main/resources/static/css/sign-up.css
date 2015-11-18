@@ -1,0 +1,51 @@
+.sign-up .title {
+    height: 100px;
+    background-image: url('../img/icon/User.png');
+    background-size: 100px 100px;
+}
+
+.sign-up > .title > .main-title {
+    padding-left: 120px;
+}
+
+.sign-up .agree{
+    padding: 15px 0px;
+}
+
+.sign-up .agree.privacy > *{
+    margin-right: 15px;
+}
+
+.sign-up .agree.license > *{
+    margin-left: 15px;
+}
+
+@media(max-width:767px){
+    .sign-up .agree{
+        padding: 0px;
+    }
+    .sign-up .agree.privacy > *{
+        margin-right: 0px;
+    }
+
+    .sign-up .agree.license > *{
+        margin-left: 0px;
+    }
+}
+
+.sign-up .agree .panel-body {
+    width: 100%;
+    padding: 10px 15px;
+}
+
+.sign-up .agree .panel-body,
+.sign-up .agree .panel-body > * {
+    display: inline-block;
+}
+.sign-up .agree .panel-body a {
+    cursor: hand;
+}
+.sign-up .agree .panel-body .checkbox{
+    float: right;
+    margin: 0;
+}
