@@ -1,11 +1,11 @@
 .education-schedule > .title {
-    height: 122px;
+    height: 100px;
     background-image: url('../img/free-training-2.jpg');
-    /*background-image: url('../img/free-training-1.jpg');*/
+    background-size: 100px 100px;
 }
 
 .education-schedule > .title > .main-title{
-    padding-left: 140px;
+    padding-left: 120px;
 }
 
 .education-schedule > .description > ul {

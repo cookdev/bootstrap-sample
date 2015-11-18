@@ -12,6 +12,7 @@ var Router = Backbone.Router.extend({
     footer: null,
     container: null,
     portalMain: null,
+    signup: null,
     privacyPolicyPopup: null,
     projectOverview: null,
     projectCore: null,
@@ -35,6 +36,7 @@ var Router = Backbone.Router.extend({
     },
     routes: {
         "": "handlePortalMainView",
+        "sign-up": "handlePortalSignupView",
         "privacy-policy": "handlePrivacyPolicyPopupView",
         "project": "handleProjectOverviewView",
         "project/core": "handleProjectCoreView",
@@ -54,6 +56,13 @@ var Router = Backbone.Router.extend({
             this.portalMain = new PortalMainView();
         }
         this.container.contents = this.portalMain;
+        this.container.render();
+    },
+    handlePortalSignupView: function(){
+        if(this.signup == null){
+            this.signup = new SignupView();
+        }
+        this.container.contents = this.signup;
         this.container.render();
     },
     handlePrivacyPolicyPopupView: function(){
@@ -213,6 +222,16 @@ var PortalMainView = Backbone.View.extend({
     },
     render: function(){
         $(this.el).append(GetHtml('portal-main.html'));
+    }
+});
+
+// Drawing Portal Main
+var SignupView = Backbone.View.extend({
+    initialize: function(){
+        this.render();
+    },
+    render: function(){
+        $(this.el).append(GetHtml('sign-up.html'));
     }
 });
 
