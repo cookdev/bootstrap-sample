@@ -225,15 +225,95 @@ var PortalMainView = Backbone.View.extend({
     }
 });
 
-// Drawing Portal Main
-var SignupView = Backbone.View.extend({
-    initialize: function(){
-        this.render();
+
+_.extend(Backbone.Validation.callbacks, {
+    valid: function (view, attr, selector) {
+        var $el = view.$('[name=' + attr + ']'),
+            $group = $el.closest('.form-group');
+
+        $group.removeClass('has-error');
+        $group.find('.help-block').html('').addClass('hidden');
     },
-    render: function(){
-        $(this.el).append(GetHtml('sign-up.html'));
+    invalid: function (view, attr, error, selector) {
+        var $el = view.$('[name=' + attr + ']'),
+            $group = $el.closest('.form-group');
+
+        $group.addClass('has-error');
+        $group.find('.help-block').html(error).removeClass('hidden');
     }
 });
+
+var SignUpModel = Backbone.Model.extend({
+    validation: {
+        userId: {
+            required: true
+        },
+        userName: {
+            required: true
+        },
+        emailAddress: {
+            required: true,
+            pattern: 'email'
+        },
+        password: {
+            minLength: 10
+        },
+        repeatPassword: {
+            equalTo: 'password',
+            msg: 'The passwords does not match'
+        }
+    }
+});
+
+// Drawing SignUp View
+var SignupView = Backbone.View.extend({
+    initialize: function(){
+        this.el = 'form';
+        this.model = new SignUpModel();
+        this.render();
+        Backbone.Validation.bind(this);
+    },
+    render: function(){
+        $(this.el).append(GetHtml('sign-up_bak.html'));
+    },
+
+    events: {
+        'click #signUpBtn': function (e) {
+            e.preventDefault();
+            this.signUp();
+        }
+    },
+
+    signUp: function () {
+        var data = this.$el.serializeObject();
+
+        this.model.set(data);
+
+        // Check if the model is valid before saving
+        // See: http://thedersen.com/projects/backbone-validation/#methods/isvalid
+        if(this.model.isValid(true)){
+            // this.model.save();
+            alert('Great Success!');
+        }
+    },
+
+    remove: function() {
+        // Remove the validation binding
+        // See: http://thedersen.com/projects/backbone-validation/#using-form-model-validation/unbinding
+        Backbone.Validation.unbind(this);
+        return Backbone.View.prototype.remove.apply(this, arguments);
+    }
+});
+
+// https://github.com/hongymagic/jQuery.serializeObject
+$.fn.serializeObject = function () {
+    "use strict";
+    var a = {}, b = function (b, c) {
+        var d = a[c.name];
+        "undefined" != typeof d && d !== null ? $.isArray(d) ? d.push(c.value) : a[c.name] = [d, c.value] : a[c.name] = c.value
+    };
+    return $.each(this.serializeArray(), b), a
+};
 
 var PrivacyPolicyPopupView = Backbone.View.extend({
     render: function(){
