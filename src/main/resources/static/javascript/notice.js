@@ -1,4 +1,3 @@
-
 var Notice = Backbone.Model.extend({
     idAttribute: 'id',
     initialize: function () {
@@ -6,12 +5,12 @@ var Notice = Backbone.Model.extend({
     constructor: function (attributes, options) {
         Backbone.Model.apply(this, arguments);
     },
-    urlRoot: 'http://localhost:18003/portal-notice/notice'
+    urlRoot: 'http://localhost:8080/portal-notice/notice'
 });
 
-var NoticesCollection = Backbone.Collection.extend({
+var NoticeCollection = Backbone.Collection.extend({
     model: Notice,
-    url: "http://localhost:18003/portal-notice/notices"
+    url: "http://localhost:8080/portal-notice/notices"
 
     // TODO
     // 화면 처음 생성시(render?)
@@ -25,13 +24,28 @@ var NoticeView = Backbone.View.extend({
     initialize: function() {
         _.bindAll(this, 'render', 'read', 'tempRead');
 
-        this.render();
         $("#noticeItems").empty();
-        this.tempRead();
+        this.render();
+        // this.tempRead();
     },
     events: {
     },
     render: function(){
+        var noticeCollection = new NoticeCollection();
+        noticeCollection.fetch({
+            success: function (response){
+                // TODO Javascript에서 html 소스 최대한 뺄 것 (template 사용)
+                $('#noticeItems').append("<article class='list-item panel panel-default'>" +
+                                            "  <div class='item-body panel-body'>" +
+                                            "      <div class='title'>" +
+                                            "          <h2>"+ response.title +"</h2>" +
+                                            "      </div>" +
+                                            "      <div class='date'>"+ response.date +"</div>" +
+                                            "      <div class='content'>"+ response.content +"</div>" +
+                                            "  </div>" +
+                                            "</article>");
+            }
+        });
     },
     read: function(){
         var notice = new Notice({ id: 40 });
@@ -62,14 +76,14 @@ var NoticeView = Backbone.View.extend({
                                 "  </div>" +
                                 "</article>");
         $('#noticeItems').append("<article class='list-item panel panel-default'>" +
-            "  <div class='item-body panel-body'>" +
-            "      <div class='title'>" +
-            "          <h2>"+ tempNotice.get("title") +"</h2>" +
-            "      </div>" +
-            "      <div class='date'>"+ tempNotice.get("date") +"</div>" +
-            "      <div class='content'>"+ tempNotice.get("content") +"</div>" +
-            "  </div>" +
-            "</article>");
+                                "  <div class='item-body panel-body'>" +
+                                "      <div class='title'>" +
+                                "          <h2>"+ tempNotice.get("title") +"</h2>" +
+                                "      </div>" +
+                                "      <div class='date'>"+ tempNotice.get("date") +"</div>" +
+                                "      <div class='content'>"+ tempNotice.get("content") +"</div>" +
+                                "  </div>" +
+                                "</article>");
     }
 });
 var noticeView = new NoticeView();
