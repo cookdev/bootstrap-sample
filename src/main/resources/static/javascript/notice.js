@@ -34,6 +34,7 @@ var NoticeView = Backbone.View.extend({
         var noticeCollection = new NoticeCollection();
         noticeCollection.fetch({
             success: function (collection, response){
+                debugger;
                 _.each(collection.models, function(model){
                     $('#noticeItems').append(noticeItemTemplate(model.toJSON()));
                 });
