@@ -12,7 +12,8 @@ var Router = Backbone.Router.extend({
     footer: null,
     container: null,
     portalMain: null,
-    signup: null,
+    signUp: null,
+    login: null,
     privacyPolicyPopup: null,
     projectOverview: null,
     projectCore: null,
@@ -36,7 +37,9 @@ var Router = Backbone.Router.extend({
     },
     routes: {
         "": "handlePortalMainView",
-        "sign-up": "handlePortalSignupView",
+        "sign-up": "handlePortalSignUpView",
+        "login": "handlePortalLoginView",
+        "login/popup": "handlePortalLoginPopupView",
         "privacy-policy": "handlePrivacyPolicyPopupView",
         "project": "handleProjectOverviewView",
         "project/core": "handleProjectCoreView",
@@ -58,12 +61,38 @@ var Router = Backbone.Router.extend({
         this.container.contents = this.portalMain;
         this.container.render();
     },
-    handlePortalSignupView: function(){
-        if(this.signup == null){
-            this.signup = new SignupView();
+    handlePortalSignUpView: function(){
+        if(this.signUp == null){
+            this.signUp = new SignUpView();
         }
-        this.container.contents = this.signup;
+        this.container.contents = this.signUp;
         this.container.render();
+    },
+    handlePortalLoginView: function(){
+        if(this.login == null){
+            this.login = new LoginView();
+        }
+        this.container.contents = this.login;
+        this.container.render();
+    },
+    // 직정링크는 로그인 페이지로 전환
+    handlePortalLoginPopupView: function(){
+        if(this.container.contents == null){
+            window.location.hash = 'login';
+        }else{
+            if(this.loginPopup == null){
+                this.loginPopup = new LoginView();
+            }
+            var modal = new Backbone.BootstrapModal({
+                content: this.loginPopup,
+                title: 'Login',
+                animate: true,
+                allowHeaderCancel: true,
+                showFooter: false,
+                height: '430px'
+            });
+            modal.open();
+        }
     },
     handlePrivacyPolicyPopupView: function(){
         var isDirectLink = false;
@@ -209,7 +238,12 @@ var FooterView = Backbone.View.extend({
 var ContainerView = Backbone.View.extend({
     contents: null,
     render: function(){
-        this.$el.html(this.contents.$el);
+        //this.contents.render();
+        //this.$el.html(this.contents.$el);
+        //this.contents.render(this.$el);
+
+
+        $(this.$el).html(GetHtml(this.contents.html));
         $(document).scrollTop(0);
         return this;
     }
@@ -217,217 +251,79 @@ var ContainerView = Backbone.View.extend({
 
 // Drawing Portal Main
 var PortalMainView = Backbone.View.extend({
+    html: 'portal-main.html',
     initialize: function(){
-        this.render();
-    },
-    render: function(){
-        $(this.el).append(GetHtml('portal-main.html'));
     }
 });
-
-
-_.extend(Backbone.Validation.callbacks, {
-    valid: function (view, attr, selector) {
-        var $el = view.$('[name=' + attr + ']'),
-            $group = $el.closest('.form-group');
-
-        $group.removeClass('has-error');
-        $group.find('.help-block').html('').addClass('hidden');
-    },
-    invalid: function (view, attr, error, selector) {
-        var $el = view.$('[name=' + attr + ']'),
-            $group = $el.closest('.form-group');
-
-        $group.addClass('has-error');
-        $group.find('.help-block').html(error).removeClass('hidden');
-    }
-});
-
-var SignUpModel = Backbone.Model.extend({
-    validation: {
-        userId: {
-            required: true
-        },
-        userName: {
-            required: true
-        },
-        emailAddress: {
-            required: true,
-            pattern: 'email'
-        },
-        password: {
-            minLength: 10
-        },
-        repeatPassword: {
-            equalTo: 'password',
-            msg: 'The passwords does not match'
-        }
-    }
-});
-
-// Drawing SignUp View
-var SignupView = Backbone.View.extend({
-    initialize: function(){
-        this.el = 'form';
-        this.model = new SignUpModel();
-        this.render();
-        Backbone.Validation.bind(this);
-    },
-    render: function(){
-        $(this.el).append(GetHtml('sign-up_bak.html'));
-    },
-
-    events: {
-        'click #signUpBtn': function (e) {
-            e.preventDefault();
-            this.signUp();
-        }
-    },
-
-    signUp: function () {
-        var data = this.$el.serializeObject();
-
-        this.model.set(data);
-
-        // Check if the model is valid before saving
-        // See: http://thedersen.com/projects/backbone-validation/#methods/isvalid
-        if(this.model.isValid(true)){
-            // this.model.save();
-            alert('Great Success!');
-        }
-    },
-
-    remove: function() {
-        // Remove the validation binding
-        // See: http://thedersen.com/projects/backbone-validation/#using-form-model-validation/unbinding
-        Backbone.Validation.unbind(this);
-        return Backbone.View.prototype.remove.apply(this, arguments);
-    }
-});
-
-// https://github.com/hongymagic/jQuery.serializeObject
-$.fn.serializeObject = function () {
-    "use strict";
-    var a = {}, b = function (b, c) {
-        var d = a[c.name];
-        "undefined" != typeof d && d !== null ? $.isArray(d) ? d.push(c.value) : a[c.name] = [d, c.value] : a[c.name] = c.value
-    };
-    return $.each(this.serializeArray(), b), a
-};
 
 var PrivacyPolicyPopupView = Backbone.View.extend({
+    html: 'popup/privacy-policy-popup.html',
     render: function(){
-        $(this.el).append(GetHtml('popup/privacy-policy-popup.html'));
-        return this;
+        debugger;
+        $(this.el).html(GetHtml(this.html));
     }
 });
-
-
-var ModalView = function(popupView) {
-    var modal = new Backbone.BootstrapModal({
-        animate: true,
-        content: popupView
-    });
-    return modal;
-};
-
 
 // Project Views
 var ProjectOverviewView = Backbone.View.extend({
+    html: 'project-overview.html',
     initialize: function(){
-        this.render();
-    },
-    render: function(){
-        $(this.el).append(GetHtml('project-overview.html'));
     }
 });
 var ProjectCoreView = Backbone.View.extend({
+    html: 'project-core.html',
     initialize: function(){
-        this.render();
-    },
-    render: function(){
-        $(this.el).append(GetHtml('project-core.html'));
     }
 });
 var ProjectCodeGeneratorView = Backbone.View.extend({
+    html: 'project-code-generator.html',
     initialize: function(){
-        this.render();
-    },
-    render: function(){
-        $(this.el).append(GetHtml('project-code-generator.html'));
     }
 });
 var ProjectQueryManagerView = Backbone.View.extend({
+    html: 'project-query-manager.html',
     initialize: function(){
-        this.render();
-    },
-    render: function(){
-        $(this.el).append(GetHtml('project-query-manager.html'));
     }
 });
 var ProjectOdenView = Backbone.View.extend({
+    html: 'project-oden.html',
     initialize: function(){
-        this.render();
-    },
-    render: function(){
-        $(this.el).append(GetHtml('project-oden.html'));
     }
 });
 var ProjectLogManagerView = Backbone.View.extend({
+    html: 'project-log-manager.html',
     initialize: function(){
-        this.render();
-    },
-    render: function(){
-        $(this.el).append(GetHtml('project-log-manager.html'));
     }
 });
 var ProjectBatchView = Backbone.View.extend({
+    html: 'project-batch.html',
     initialize: function(){
-        this.render();
-    },
-    render: function(){
-        $(this.el).append(GetHtml('project-batch.html'));
     }
 });
 var ProjectIamView = Backbone.View.extend({
+    html: 'project-iam.html',
     initialize: function(){
-        this.render();
-    },
-    render: function(){
-        $(this.el).append(GetHtml('project-iam.html'));
     }
 });
 var ProjectMonitoringView = Backbone.View.extend({
+    html: 'project-monitoring.html',
     initialize: function(){
-        this.render();
-    },
-    render: function(){
-        $(this.el).append(GetHtml('project-monitoring.html'));
     }
 });
-
 
 // Notice View
 var NoticeView = Backbone.View.extend({
+    html: 'notice.html',
     initialize: function(){
-        this.render();
-    },
-    render: function(){
-        $(this.el).append(GetHtml('notice.html'));
     }
 });
-
 
 // Education Schedule View
 var EducationScheduleView = Backbone.View.extend({
+    html: 'education-schedule.html',
     initialize: function(){
-        this.render();
-    },
-    render: function(){
-        $(this.el).append(GetHtml('education-schedule.html'));
     }
 });
-
 
 // Routing Views
 $(document).ready(function(){

@@ -12,13 +12,39 @@ var GetHtml = function(url){
 
     return getFile.responseText;
 }
+// Backbone CORS Settings
 
 
 // Dropdown 활성화시 Collapse 안 닫히는 현상 컨트롤
 $(document).ready(function(){
     $('.dropdown').on('show.bs.dropdown', function () {
         $('#navbar-collapse').collapse('hide')
-    })
+    });
+    $('input[type="checkbox"]').on('change', function(e){
+        if($(e.target).is(':checked')){
+            $(e.target).val('on');
+        }else{
+            $(e.target).val('off');
+        }
+    });
+    (function() {
+
+        var proxiedSync = Backbone.sync;
+
+        Backbone.sync = function(method, model, options) {
+            options || (options = {});
+
+            if (!options.crossDomain) {
+                options.crossDomain = true;
+            }
+
+            if (!options.xhrFields) {
+                options.xhrFields = {withCredentials:true};
+            }
+
+            return proxiedSync(method, model, options);
+        };
+    })();
 });
 
 /* 반응형WEB 구현을 위해

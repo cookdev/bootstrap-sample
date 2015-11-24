@@ -5,84 +5,94 @@
 
     <div class="container main-contents">
         <section class="main-content">
-<form class="form-horizontal" role="form">
-    <h3>Sign Up!</h3>
+            <form class="sign-up-form">
+                <div class="form-group">
+                    <label for="userName">ID</label>
+                    <input type="text" class="form-control" data-validate-type="text" id="userName" name="username" placeholder="로그인을 위한 ID를 입력하세요">
+                    <span class="help-block hidden"></span>
+                </div>
+                <div class="form-group">
+                    <label for="displayName">이름</label>
+                    <input type="text" class="form-control" data-validate-type="text" id="displayName"  name="display_name" placeholder="Anyframe Community에서 사용할 이름을 입력하세요">
+                    <span class="help-block hidden"></span>
+                </div>
+                <div class="form-group">
+                    <label for="email">이메일</label>
+                    <input type="email" class="form-control" data-validate-type="text" id="email" name="email" placeholder="이메일 주소를 입력하세요">
+                    <span class="help-block hidden"></span>
+                </div>
+                <div class="form-group">
+                    <label for="password">패스워드</label>
+                    <input type="password" class="form-control" data-validate-type="text" id="password"  name="user_pass" placeholder="10자리 이상의 패스워드를 입력하세요">
+                    <span class="help-block hidden"></span>
+                </div>
+                <div class="form-group">
+                    <label for="repeatPassword">패스워드 확인</label>
+                    <input type="password" class="form-control" data-validate-type="text" id="repeatPassword" name="repeatPassword" placeholder="동일한 패스워드를 입력하세요">
+                    <span class="help-block hidden"></span>
+                </div>
+                <div class="agree">
+                    <div class="form-group">
+                        <label for="isPrivacyPolicyAgreed">개인정보 수집 및 이용 동의</label>
+                        <div class="form-control">
+                            <a href="#privacy-policy">개인정보 취급 정책 확인</a>
+                            <div class="checkbox">
+                                <input type="checkbox" data-validate-type="checkbox" id="isPrivacyPolicyAgreed" name="isPrivacyPolicyAgreed"/>
+                                <label for="isPrivacyPolicyAgreed">동의합니다.</label>
+                            </div>
+                        </div>
+                        <span class="help-block hidden"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="isLicenseAgreed">개인정보 수집 및 이용 동의</label>
+                        <div class="form-control">
+                            <a href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank">라이선스 정책 확인</a>
+                            <div class="checkbox">
+                                <input type="checkbox" data-validate-type="checkbox" id="isLicenseAgreed" name="isLicenseAgreed"/>
+                                <label for="isLicenseAgreed">동의합니다.</label>
+                            </div>
+                        </div>
+                        <span class="help-block hidden"></span>
+                    </div>
+                </div>
 
-    <div class="form-group">
-        <label for="username" class="col-lg-2 control-label">Username</label>
-        <div class="col-lg-10">
-            <input type="text" class="form-control" id="username" name="username" />
-            <span class="help-block hidden"></span>
-        </div>
-    </div>
-    <div class="form-group">
-        <label for="email" class="col-lg-2 control-label">Email</label>
-        <div class="col-lg-10">
-            <input type="email" class="form-control" id="email" name="email" />
-            <span class="help-block hidden"></span>
-        </div>
-    </div>
-    <div class="form-group">
-        <label for="password" class="col-lg-2 control-label">Password</label>
-        <div class="col-lg-10">
-            <input type="password" class="form-control" id="password" name="password" />
-            <span class="help-block hidden"></span>
-        </div>
-    </div>
-    <div class="form-group">
-        <label for="repeatPassword" class="col-lg-2 control-label">Repeat Password</label>
-        <div class="col-lg-10">
-            <input type="password" class="form-control" id="repeatPassword" name="repeatPassword" />
-            <span class="help-block hidden"></span>
-        </div>
-    </div>
-    <div class="form-group">
-        <label for="country" class="col-lg-2 control-label">Country</label>
-        <div class="col-lg-10">
-            <select class="form-control" id="country" name="country">
-                <option>Norway</option>
-                <option>Sweeden</option>
-                <option>Denmark</option>
-                <option>Finland</option>
-                <option>Iceland</option>
-            </select>
-            <span class="help-block hidden"></span>
-        </div>
-    </div>
-    <div class="form-group">
-        <label class="col-lg-2 control-label">Gender</label>
-        <div class="col-lg-offset-2 col-lg-10">
-            <label class="radio-inline control-label">
-                <input type="radio" id="genderMale" name="gender" value="male" /> Male
-            </label>
-            <label class="radio-inline control-label">
-                <input type="radio" id="genderFemale" name="gender" value="female" /> Female
-            </label>
-            <span class="help-block hidden"></span>
-        </div>
-    </div>
-    <div class="form-group">
-        <label for="age" class="col-lg-2 control-label">Age</label>
-        <div class="col-lg-10">
-            <input type="number" class="form-control" id="age" name="age" />
-            <span class="help-block hidden"></span>
-        </div>
-    </div>
-    <div class="form-group">
-        <div class="col-lg-offset-2 col-lg-10">
-            <div class="checkbox">
-                <label class="control-label">
-                    <input type="checkbox" value="true" id="terms" name="terms" />I agree all your <a href="#">Terms of Services</a>
-
-                </label>
-                <span class="help-block hidden"></span>
+                <!--<div class="agree privacy col-sm-6">-->
+                    <!--<div class="checkbox-wrapper">-->
+                        <!--<div class="panel panel-default">-->
+                            <!--<div class="panel-heading">-->
+                                <!--<h4 class="panel-title">개인정보 수집 및 이용 동의</h4>-->
+                            <!--</div>-->
+                            <!--<div class="panel-body">-->
+                                <!--<a href="#privacy-policy">개인정보 취급 정책 확인</a>-->
+                                <!--<div class="checkbox">-->
+                                    <!--<input type="checkbox" data-validate-type="checkbox" name="isPrivacyPolicyAgreed"> 동의합니다.-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<span class="text-right error-block hidden"></span>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="agree license col-sm-6">-->
+                    <!--<div class="checkbox-wrapper">-->
+                        <!--<div class="panel panel-default">-->
+                            <!--<div class="panel-heading">-->
+                                <!--<h4 class="panel-title">라이선스 정책 동의</h4>-->
+                            <!--</div>-->
+                            <!--<div class="panel-body">-->
+                                <!--<a href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank">라이선스 정책 확인</a>-->
+                                <!--<div class="checkbox">-->
+                                    <!--<input type="checkbox" data-validate-type="checkbox" name="isLicenseAgreed"> 동의합니다.-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<span class="text-right error-block hidden"></span>-->
+                    <!--</div>-->
+                <!--</div>-->
+            </form>
+            <div class="btn-group btn-group-lg" role="group">
+                <button type="button" id="signUpBtn" class="btn btn-primary">Sign up</button>
+                <button type="button" class="btn btn-default">Cancel</button>
             </div>
-        </div>
+        </section>
     </div>
-    <div class="form-group">
-        <div class="col-lg-offset-2 col-lg-10">
-            <button type="button" id="signUpButton" class="btn btn-success">Sign Up</button>
-        </div>
-    </div>
-</form>
-</section>
+</article>
