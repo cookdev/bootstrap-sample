@@ -21,7 +21,7 @@ public class SSOController {
 	public String loginToForum(@PathVariable String userName, @PathVariable String password,
 			HttpServletResponse response) {
 			
-		String url = "https://forum.ssc.com/api/user/generate_auth_cookie/?username=" + userName + "&password="
+		String url = "http://70.50.223.45/wordpress/api/user/generate_auth_cookie/?username=" + userName + "&password="
 				+ password;
 				
 		GenerateAuthCookie authCookie = restTemplate.getForObject(url, GenerateAuthCookie.class);

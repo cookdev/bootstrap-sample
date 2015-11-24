@@ -130,7 +130,8 @@
                 escape: true,
                 animate: false,
                 template: template,
-                enterTriggersOk: false
+                enterTriggersOk: false,
+                height: window.innerHeight - (($(document).width() < 1140)?125:165) + 'px'
             }, options);
         },
 
@@ -153,7 +154,7 @@
             if (content && content.$el) {
                 content.render();
                 $el.find('.modal-body').html(content.$el);
-                $el.find('.modal-body').css('height', window.innerHeight - (($(document).width() < 1140)?125:165) + 'px');
+                $el.find('.modal-body').css('height', options.height);
             }
 
             if (options.animate) $el.addClass('fade');

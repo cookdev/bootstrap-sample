@@ -11,6 +11,12 @@ var Notice = Backbone.Model.extend({
 var NoticeCollection = Backbone.Collection.extend({
     model: Notice,
     url: "http://localhost:8080/portal-notice/notices"
+
+    // TODO
+    // 화면 처음 생성시(render?)
+    // var noticesCollection = new NoticeCoolection();
+    // noticesColllection.fetch()
+    // fetch 하면 정해놓은 url로 리스트 요청함
 });
 
 var NoticeView = Backbone.View.extend({
@@ -28,18 +34,9 @@ var NoticeView = Backbone.View.extend({
         var noticeCollection = new NoticeCollection();
         noticeCollection.fetch({
             success: function (collection, response){
+                debugger;
                 _.each(collection.models, function(model){
                     $('#noticeItems').append(noticeItemTemplate(model.toJSON()));
-                    $("#noticeItems > .list-item .content").readmore({
-                        collapsedHeight: 150,
-                        // moreLink: '<a href="#">더보기</a>',
-                        moreLink: '<div class="btn-group btn-group-justified" role="group" aria-label="readMore-btn-group"> ' +
-                        ' <a href="#" class="btn btn-default" role="button">더보기</a>' +
-                        '</div>',
-                        lessLink: '<div class="btn-group btn-group-justified" role="group" aria-label="readMore-btn-group"> ' +
-                        ' <a href="#" class="btn btn-default" role="button">접기</a>' +
-                        '</div>'
-                    });
                 });
             }
         });
@@ -52,7 +49,6 @@ var NoticeView = Backbone.View.extend({
             }
         });
     },
-    // 지워도 됨
     tempRead: function() {
         var tempNotice = new Notice({ id: 40, title: '[알림] 서버 정기 작업 일정 알려드립니다. ( 10/1(수) 15:00 ~ 10/1(수) 18:00 )', content: '10/1(수) 15:00 ~ 10/1(수) 18:00 로 예정된 서버 정기 작업 일정을 알려드립니다. <br/> 이 시간 동안 Anyframe Java 오픈소스 커뮤니티 사용을 포함하여 Anyframe Java 개발 서버를 통해 제공하는 개발 환경에 접근이 제한되므로 사용에 참고하시기 바랍니다.<br/><br/> [작업 일시]<br/>10/1(수) 15:00 ~ 10/1(수) 18:00<br/><br/>[사용 제한 대상]<br/>1) Anyframe Java 오픈소스 커뮤니티 사이트(다운로드 페이지, 매뉴얼 사이트, Forum 등 모두 제한됨)<br/>2) Subversion(형상관리 서버)<br/>3) CTIP(빌드 서버)<br/>4) JIRA(이슈 관리 시스템)<br/>5) Anyframe Maven Repository(라이브러리 저장소)<br/><br/>문의사항이 있으신 경우 관리자 이메일(anyframe@samsung.com)로 연락주시기 바랍니다.<br/><br/>감사합니다.', date: '2015-10-01 15:00' });
         $('#noticeItems').append("<article class='list-item panel panel-default'>" +
