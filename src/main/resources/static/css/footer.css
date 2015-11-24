@@ -11,7 +11,8 @@
     /*background: #3c3d3d;*/
     color: #a2a3a4;
 }
-.footer a {
+.footer a,
+.footer span{
     color: #fff;
 }
 .footer a:hover {
@@ -89,7 +90,7 @@
     margin-top: 0;
     margin-bottom: 20px;
     color: rgba(255,255,255,.7);
-    font: 400 15px/20px "Open Sans", Helvetica, Arial, sans-serif;
+    font: 400 20px/20px "Open Sans", Helvetica, Arial, sans-serif;
     text-transform: uppercase;
     text-shadow: none;
 }
