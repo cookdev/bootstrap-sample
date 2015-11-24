@@ -181,7 +181,7 @@ var SignUpView = Backbone.View.extend({
 //    return $.each(this.serializeArray(), b);
 //};
 
-$.fn.serializeObject = function () {
+$.fn.serializeObject = function ( ) {
     var modelData = {};
     var formArray = this.find('input');
     $.each(formArray, function(idx, obj){
