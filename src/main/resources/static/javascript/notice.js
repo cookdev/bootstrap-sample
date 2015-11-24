@@ -11,12 +11,6 @@ var Notice = Backbone.Model.extend({
 var NoticeCollection = Backbone.Collection.extend({
     model: Notice,
     url: "http://localhost:8080/portal-notice/notices"
-
-    // TODO
-    // 화면 처음 생성시(render?)
-    // var noticesCollection = new NoticeCoolection();
-    // noticesColllection.fetch()
-    // fetch 하면 정해놓은 url로 리스트 요청함
 });
 
 var NoticeView = Backbone.View.extend({
@@ -24,9 +18,8 @@ var NoticeView = Backbone.View.extend({
     initialize: function() {
         _.bindAll(this, 'render', 'read', 'tempRead');
 
-        $("#noticeItems").empty();
+        //$("#noticeItems").empty();
         this.render();
-        // this.tempRead();
     },
     events: {
     },
@@ -34,16 +27,19 @@ var NoticeView = Backbone.View.extend({
         var noticeCollection = new NoticeCollection();
         noticeCollection.fetch({
             success: function (response){
-                // TODO Javascript에서 html 소스 최대한 뺄 것 (template 사용)
-                $('#noticeItems').append("<article class='list-item panel panel-default'>" +
-                                            "  <div class='item-body panel-body'>" +
-                                            "      <div class='title'>" +
-                                            "          <h2>"+ response.title +"</h2>" +
-                                            "      </div>" +
-                                            "      <div class='date'>"+ response.date +"</div>" +
-                                            "      <div class='content'>"+ response.content +"</div>" +
-                                            "  </div>" +
-                                            "</article>");
+                debugger;
+                response.models.forEach(
+                    function writeNotice(value) {
+                        $('#noticeItems').append("<article class='list-item panel panel-default'>" +
+                            "  <div class='item-body panel-body'>" +
+                            "      <div class='title'>" +
+                            "          <h2>"+ value.get('title') +"</h2>" +
+                            "      </div>" +
+                            "      <div class='date'>"+ value.get('date') +"</div>" +
+                            "      <div class='content'>"+ value.get('content') +"</div>" +
+                            "  </div>" +
+                            "</article>");
+                });
             }
         });
     },
