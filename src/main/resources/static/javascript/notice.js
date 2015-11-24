@@ -27,7 +27,6 @@ var NoticeView = Backbone.View.extend({
         var noticeCollection = new NoticeCollection();
         noticeCollection.fetch({
             success: function (response){
-                debugger;
                 response.models.forEach(
                     function writeNotice(value) {
                         $('#noticeItems').append("<article class='list-item panel panel-default'>" +
