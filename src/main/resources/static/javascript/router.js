@@ -51,6 +51,7 @@ var Router = Backbone.Router.extend({
         "project/iam": "handleProjectIamView",
         "project/monitoring": "handleProjectMonitoringView",
         "notice": "handleNoticeView",
+        "notice/popup": "handleNoticePopupView",
         "education-schedule": "handleEducationScheduleView"
 
     },
@@ -191,6 +192,27 @@ var Router = Backbone.Router.extend({
         this.container.contents = this.notice;
         this.container.render();
     },
+
+    handleNoticePopupView: function(){
+        //if(this.noticePopup == null){
+        //    this.noticePopup = new NoticePopupView();
+        //}
+        //var modal = new Backbone.BootstrapModal({
+        //    content: this.noticePopup,
+        //    title: 'NoticeAdd',
+        //    animate: true,
+        //    allowHeaderCancel: true,
+        //    showFooter: false,
+        //    height: '430px',
+        //    width: '1500px'
+        //});
+        //modal.open();
+        if(this.noticePopup == null){
+            this.noticePopup = new NoticePopupView();
+        }
+        this.container.contents = this.noticePopup;
+        this.container.render();
+    },
     handleEducationScheduleView: function(){
         if(this.educationSchedule == null){
             this.educationSchedule = new EducationScheduleView();
@@ -245,6 +267,7 @@ var ContainerView = Backbone.View.extend({
 
         $(this.$el).html(GetHtml(this.contents.html));
         $(document).scrollTop(0);
+        this.contents.render();
         return this;
     }
 });
@@ -311,12 +334,12 @@ var ProjectMonitoringView = Backbone.View.extend({
     }
 });
 
-// Notice View
-var NoticeView = Backbone.View.extend({
-    html: 'notice.html',
-    initialize: function(){
-    }
-});
+//// Notice View
+//var NoticeView = Backbone.View.extend({
+//    html: 'notice.html',
+//    initialize: function(){
+//    }
+//});
 
 // Education Schedule View
 var EducationScheduleView = Backbone.View.extend({
