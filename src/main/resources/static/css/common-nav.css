@@ -28,6 +28,11 @@ header.common-header {
     float: left;
     padding: 0 15px;
 }
+
+.common-navbar #navbar-collapse {
+    height: 35px!important;
+}
+
 .anyframe-small-logo:hover,
 .anyframe-small-logo:focus {
     text-decoration: none !important;

@@ -5,6 +5,7 @@ var Notice = Backbone.Model.extend({
     constructor: function (attributes, options) {
         Backbone.Model.apply(this, arguments);
     },
+
     urlRoot: 'http://localhost:8080/portal-notice/notice'
 });
 
@@ -33,6 +34,7 @@ var NoticeView = Backbone.View.extend({
     events: {
     },
     render: function(){
+        $('#txtEditor').Editor();
         this.noticeCollection.fetch({
             success: function (collection, response){
                 //debugger;
@@ -63,8 +65,6 @@ var NoticeView = Backbone.View.extend({
     }
 });
 
-//var noticeView = new NoticeView();
-
 var NoticePopupModel = Backbone.Model.extend({
     validation: {
         title: {
@@ -76,29 +76,3 @@ var NoticePopupModel = Backbone.Model.extend({
         }
     }
 });
-
-// Drawing Login View
-var NoticePopupView = Backbone.View.extend({
-    //el: $('#mainContents'),
-    model: new NoticePopupModel(),
-    form: '.notice-popup form',
-    html: 'notice-popup.html',
-
-    initialize: function(){
-        Backbone.Validation.bind(this);
-        this.render();
-    },
-    render: function(){
-        $(this.el).html(GetHtml(this.html));
-        $('#txtEditor').Editor();
-    },
-
-    events: {
-        'click #noticeAddBtn': function (e) {
-            e.preventDefault();
-            //this.login();
-        }
-    }
-});
-
-//var noticePopupView = new NoticePopupView();

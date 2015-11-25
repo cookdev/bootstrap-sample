@@ -25,3 +25,8 @@
 .notice #noticeItems .list-item .item-body {
     padding : 30px;
 }
+
+.notice .title #noticeWriteBtn {
+    float: right;
+    margin-top: 55px;
+}
