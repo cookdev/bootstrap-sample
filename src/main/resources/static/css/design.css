@@ -37,6 +37,15 @@ main {
     border-radius: 0px;
 }
 
+span.indent-1{
+    padding-left: 10px;
+    display: block;
+}
+
+span.indent-2{
+    padding-left: 20px;
+    display: block;
+}
 .masthead {
     background-color: #fff;
     /*background-color: #5F9EA0;*/

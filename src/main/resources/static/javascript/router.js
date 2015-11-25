@@ -282,7 +282,6 @@ var PortalMainView = Backbone.View.extend({
 var PrivacyPolicyPopupView = Backbone.View.extend({
     html: 'popup/privacy-policy-popup.html',
     render: function(){
-        debugger;
         $(this.el).html(GetHtml(this.html));
     }
 });
