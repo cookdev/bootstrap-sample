@@ -7,3 +7,6 @@ var noticeItemTemplate = _.template ("\
         </div>\
     </article>\
     ")
+
+var noticeEditorLink = _.template("\
+<a href='#notice/editor/<%= noticeId %>' class='notice-update-editor'>")

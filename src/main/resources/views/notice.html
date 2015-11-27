@@ -2,30 +2,8 @@
     <div class="title">
         <h1 class="main-title">
             <span class="glyphicon glyphicon-bell"></span>공지사항
-            <button type="button" id="noticeWriteBtn" class="btn btn-lg btn-primary" data-toggle="collapse" data-target="#noticeEditor">Write</button>
+            <a href="#notice/editor"><button type="button" id="noticeWriteBtn" class="btn btn-lg btn-primary"><span class="glyphicon glyphicon-pencil"></span> 글쓰기</button></a>
         </h1>
-    </div>
-    <div id="noticeEditor" class="collapse">
-        <form class="notice-write-form">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-lg-12 nopadding">
-                                <input type="text" id="noticeEditorTitle" class="h2" placeholder="제목을 입력하세요"/>
-                                <textarea id="txtEditor"></textarea>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="btn-group btn-group-justified" role="group" aria-label="...">
-                <div class="btn-group " role="group">
-                    <button type="button" id="noticeAddBtn" class="btn btn-lg btn-primary">Ok</button>
-                </div>
-            </div>
-        </form>
-
     </div>
     <div id="noticeItems"></div>
 </article>

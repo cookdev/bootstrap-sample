@@ -25,6 +25,7 @@ var Router = Backbone.Router.extend({
     projectIam: null,
     projectMonitoring: null,
     notice: null,
+    noticeEditor: null,
     educationSchedule: null,
 
     initialize: function(){
@@ -51,6 +52,8 @@ var Router = Backbone.Router.extend({
         "project/iam": "handleProjectIamView",
         "project/monitoring": "handleProjectMonitoringView",
         "notice": "handleNoticeView",
+        "notice/editor": "handleNoticeEditorView",
+        "notice/editor/:noticeId": "handleNoticeEditorView",
         "education-schedule": "handleEducationScheduleView"
 
     },
@@ -189,6 +192,13 @@ var Router = Backbone.Router.extend({
             this.notice = new NoticeView();
         }
         this.container.contents = this.notice;
+        this.container.render();
+    },
+    handleNoticeEditorView: function(noticeId){
+        if(this.noticeEditor == null){
+            this.noticeEditor = new NoticeEditorView(noticeId);
+        }
+        this.container.contents = this.noticeEditor;
         this.container.render();
     },
     handleEducationScheduleView: function(){
