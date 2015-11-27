@@ -259,10 +259,6 @@ var ContainerView = Backbone.View.extend({
     render: function(){
         this.contents.render();
         this.$el.html(this.contents.$el);
-        //this.$el.html(this.contents.$el);
-        //this.contents.render(this.$el);
-
-        //$(this.$el).html(GetHtml(this.contents.html));
         $(document).scrollTop(0);
         this.contents.render();
         return this;

@@ -16,7 +16,7 @@ var NoticeCollection = Backbone.Collection.extend({
 });
 
 var NoticeView = Backbone.View.extend({
-    el: $('#mainContents'),
+    //el: $('#mainContents'),
     html: 'notice.html',
     noticeCollection: null,
 
@@ -32,6 +32,9 @@ var NoticeView = Backbone.View.extend({
         }
     },
     render: function(){
+
+        $(this.el).html(GetHtml(this.html));
+
          this.noticeCollection.fetch({
            success: function (collection, response){
                 _.each(collection.models, function(model){

@@ -1,5 +1,5 @@
 var NoticeEditorView = Backbone.View.extend({
-    el: $('#mainContents'),
+    //el: $('#mainContents'),
     html: 'notice-editor.html',
     noticeId: null,
     initialize: function(noticeId) {
@@ -18,6 +18,9 @@ var NoticeEditorView = Backbone.View.extend({
         'click #noticeCancelBtn': 'cancel'
     },
     render: function(){
+
+        $(this.el).html(GetHtml(this.html));
+
         $('#txtEditor').Editor();
     },
     read: function (noticeId) {
