@@ -69,7 +69,7 @@ var SignUpModel = Backbone.Model.extend({
         userId: [
             {
                 required: true,
-                msg: 'ID를 입력하십시오.'
+                msg: 'ID를 입력하십시오. '
             },{
                 isExistedID: false,
                 msg: '이미 존재하는 ID 입니다.'
