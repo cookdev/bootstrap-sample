@@ -257,7 +257,6 @@ var FooterView = Backbone.View.extend({
 var ContainerView = Backbone.View.extend({
     contents: null,
     render: function(){
-        this.contents.render();
         this.$el.html(this.contents.$el);
         $(document).scrollTop(0);
         this.contents.render();
@@ -280,17 +279,9 @@ var PrivacyPolicyPopupView = Backbone.View.extend({
     initialize: function(){
     },
     render: function(){
-        debugger;
         $(this.el).html(GetHtml(this.html));
     }
 });
-
-//// Notice View
-//var NoticeView = Backbone.View.extend({
-//    html: 'notice.html',
-//    initialize: function(){
-//    }
-//});
 
 // Routing Views
 $(document).ready(function(){
