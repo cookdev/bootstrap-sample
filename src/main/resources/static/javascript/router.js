@@ -14,6 +14,8 @@ var Router = Backbone.Router.extend({
     portalMain: null,
     signUp: null,
     login: null,
+    myPage: null,
+    passwordValidationPopup: null,
     privacyPolicyPopup: null,
     projectOverview: null,
     projectCore: null,
@@ -41,6 +43,7 @@ var Router = Backbone.Router.extend({
         "sign-up": "handlePortalSignUpView",
         "login": "handlePortalLoginView",
         "login/popup": "handlePortalLoginPopupView",
+        "my-page/:userId": "handleMyPageView",
         "privacy-policy": "handlePrivacyPolicyPopupView",
         "project": "handleProjectOverviewView",
         "project/core": "handleProjectCoreView",
@@ -78,7 +81,6 @@ var Router = Backbone.Router.extend({
         this.container.contents = this.login;
         this.container.render();
     },
-    // 직정링크는 로그인 페이지로 전환
     handlePortalLoginPopupView: function(){
         if(this.container.contents == null){
             window.location.hash = 'login';
@@ -96,6 +98,13 @@ var Router = Backbone.Router.extend({
             });
             modal.open();
         }
+    },
+    handleMyPageView: function(userId){
+        if(this.myPage == null){
+            this.myPage = new MyPageView(userId);
+        }
+        this.container.contents = this.myPage;
+        this.container.render();
     },
     handlePrivacyPolicyPopupView: function(){
         var isDirectLink = false;
@@ -248,12 +257,12 @@ var FooterView = Backbone.View.extend({
 var ContainerView = Backbone.View.extend({
     contents: null,
     render: function(){
-        //this.contents.render();
+        this.contents.render();
+        this.$el.html(this.contents.$el);
         //this.$el.html(this.contents.$el);
         //this.contents.render(this.$el);
 
-
-        $(this.$el).html(GetHtml(this.contents.html));
+        //$(this.$el).html(GetHtml(this.contents.html));
         $(document).scrollTop(0);
         this.contents.render();
         return this;
@@ -264,60 +273,19 @@ var ContainerView = Backbone.View.extend({
 var PortalMainView = Backbone.View.extend({
     html: 'portal-main.html',
     initialize: function(){
-    }
-});
-
-var PrivacyPolicyPopupView = Backbone.View.extend({
-    html: 'popup/privacy-policy-popup.html',
+    },
     render: function(){
         $(this.el).html(GetHtml(this.html));
     }
 });
 
-// Project Views
-var ProjectOverviewView = Backbone.View.extend({
-    html: 'project-overview.html',
+var PrivacyPolicyPopupView = Backbone.View.extend({
+    html: 'popup/privacy-policy-popup.html',
     initialize: function(){
-    }
-});
-var ProjectCoreView = Backbone.View.extend({
-    html: 'project-core.html',
-    initialize: function(){
-    }
-});
-var ProjectCodeGeneratorView = Backbone.View.extend({
-    html: 'project-code-generator.html',
-    initialize: function(){
-    }
-});
-var ProjectQueryManagerView = Backbone.View.extend({
-    html: 'project-query-manager.html',
-    initialize: function(){
-    }
-});
-var ProjectOdenView = Backbone.View.extend({
-    html: 'project-oden.html',
-    initialize: function(){
-    }
-});
-var ProjectLogManagerView = Backbone.View.extend({
-    html: 'project-log-manager.html',
-    initialize: function(){
-    }
-});
-var ProjectBatchView = Backbone.View.extend({
-    html: 'project-batch.html',
-    initialize: function(){
-    }
-});
-var ProjectIamView = Backbone.View.extend({
-    html: 'project-iam.html',
-    initialize: function(){
-    }
-});
-var ProjectMonitoringView = Backbone.View.extend({
-    html: 'project-monitoring.html',
-    initialize: function(){
+    },
+    render: function(){
+        debugger;
+        $(this.el).html(GetHtml(this.html));
     }
 });
 
@@ -327,13 +295,6 @@ var ProjectMonitoringView = Backbone.View.extend({
 //    initialize: function(){
 //    }
 //});
-
-// Education Schedule View
-var EducationScheduleView = Backbone.View.extend({
-    html: 'education-schedule.html',
-    initialize: function(){
-    }
-});
 
 // Routing Views
 $(document).ready(function(){

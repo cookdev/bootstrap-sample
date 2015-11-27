@@ -64,9 +64,9 @@ _.extend(Backbone.Validation.validators, {
 });
 
 var SignUpModel = Backbone.Model.extend({
-    url: 'https://forum.ssc.com/api/user/register',
+    urlRoot: 'http://70.50.214.48:30002/user',
     validation: {
-        username: [
+        userId: [
             {
                 required: true,
                 msg: 'ID를 입력하십시오.'
@@ -75,7 +75,7 @@ var SignUpModel = Backbone.Model.extend({
                 msg: '이미 존재하는 ID 입니다.'
             }
         ],
-        display_name: [
+        userName: [
             {
                 required: true,
                 msg: '사용자 이름을 입력하십시오.'
@@ -89,12 +89,12 @@ var SignUpModel = Backbone.Model.extend({
             pattern: 'email',
             msg: '이메일 주소를 입력하십시오.'
         },
-        user_pass: {
+        password: {
             minLength: 4,
             msg: '패스워드는 최소 10자리 이상이어야 합니다.'
         },
         repeatPassword: {
-            equalTo: 'user_pass',
+            equalTo: 'password',
             msg: '패스워드가 일치하지 않습니다.'
         },
         isPrivacyPolicyAgreed: {
@@ -118,6 +118,9 @@ var SignUpView = Backbone.View.extend({
     initialize: function(){
         Backbone.Validation.bind(this);
     },
+    render: function(){
+        $(this.el).html(GetHtml(this.html));
+    },
 
     events: {
         'click #signUpBtn': function (e) {
@@ -128,39 +131,18 @@ var SignUpView = Backbone.View.extend({
 
     signUp: function () {
         var data = this.$el.find(this.form).serializeObject();
-        data.nonce = (function(){
-            var nonce = '';
-            $.ajax({
-                url: 'https://forum.ssc.com/api/get_nonce/?controller=user&method=register',
-                async: false,
-                method: 'get',
-                complete: function( jqXHR, textStatus){
-                    nonce = jqXHR.responseJSON.nonce;
+        this.model.set(data);
+        if(this.model.isValid(true)){
+            this.model.save({}, {
+                success: function(a,b,c){
+                    alert('회원가입이 완료되었습니다. 로그인 페이지로 이동합니다.');
+                    window.location.hash = "login";
+                },
+                error: function(a,b,c){
+                    alert("Error");
                 }
             });
-            return nonce;
-        })();
-
-        this.model.set(data);
-
-        if(this.model.isValid(true)){
-            this.model.save();
-            alert('회원가입이 완료되었습니다.');
         }
-        // Ajax Call
-        //$.ajax({
-        //    url: 'https://forum.ssc.com/api/user/register',
-        //    async: false,
-        //    method: 'post',
-        //    contentType : 'application/json',
-        //    data: data,
-        //    complete: function( jqXHR, textStatus){
-        //        console.log(jqXHR);
-        //    }
-        //});
-
-        // Check if the model is valid before saving
-        // See: http://thedersen.com/projects/backbone-validation/#methods/isvalid
     },
 
     remove: function() {

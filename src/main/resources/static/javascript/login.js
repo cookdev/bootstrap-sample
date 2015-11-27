@@ -25,6 +25,9 @@ var LoginView = Backbone.View.extend({
     render: function(){
         $(this.el).html(GetHtml(this.html));
     },
+    //render: function(){
+    //    $(this.el).html(GetHtml(this.html));
+    //},
 
     events: {
         'click #loginBtn': function (e) {
